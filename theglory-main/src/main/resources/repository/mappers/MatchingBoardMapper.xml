@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.teamproject.theglory.hhj95.mapper.MatchingBoardMapper">
+
+<!-- 댓글을 삭제하는 맵핑 구문 -->
+<delete id="deleteReply">
+	DELETE FROM matchReply
+	WHERE no = #{no}
+</delete>
+
+<!-- 댓글을 수정하는 맵핑 구문 -->
+<update id="updateReply" parameterType="MatchingReply">
+	UPDATE matchReply
+		SET 	reply_content = #{replyContent},
+				reg_date = SYSDATE()
+		WHERE no = #{no}
+</update>
+
+<!-- 댓글을 추가하는 맵핑 구문 -->
+<insert id="addReply" parameterType="MatchingReply">
+	INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)
+	VALUES (#{matchNo}, #{replyContent}, #{replyWriter}, SYSDATE())
+</insert>
+
+<!-- 추천/떙큐 정보를 가져오는 맵핑 구문 -->
+<select id="getRecommend" resultType="MatchingBoard">
+	SELECT recommend, thank
+	FROM matching
+	WHERE no = #{no}
+</select>
+
+<!-- 추천/땡큐 정보를 업데이트하는 맵핑 구문 -->
+<update id="updateRecommend">
+	UPDATE matching
+	SET
+		<if test="recommend == 'commend'">
+			recommend = recommend + 1
+		</if>
+		<if test="recommend == 'thank'">
+			thank = thank + 1
+		</if>
+	WHERE no = #{no}
+</update>
+
+<!-- 게시 글 번호에 해당하는 댓글 리스트를 가져오는 맵핑 구문 -->
+<select id="replyList" resultType="MatchingReply">
+	SELECT
+		no,
+		match_no AS matchNo,
+		reply_content AS replyContent,
+		reply_writer AS replyWriter,
+		reg_date AS regDate
+	FROM matchReply
+	WHERE match_no = #{no}
+		ORDER BY no DESC
+</select>
+
+<!-- no에 해당하는 게시 글의 읽은 횟수를 증가시키는 맵핑 구문 -->
+<update id="incrementReadCount">
+	UPDATE matching
+		SET read_count = read_count + 1
+	WHERE no = #{no}
+</update>
+
+<!-- 전체 게시 글 수를 반환하는 맵핑 구문 -->
+<select id="getBoardCount" resultType="int">
+	SELECT COUNT(no)
+	FROM matching
+	<where>
+		<if test = "type == 'title'">
+			title LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="type == 'writer'">
+			writer LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="type == 'content'">
+			content LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+	</where>
+</select>
+
+<!-- no에 해당하는 게시 글을 삭제하는 맵핑 구문 -->
+<delete id="deleteBoard">
+	DELETE FROM matching
+	WHERE no = #{no}
+</delete>
+
+<!-- no에 해당하는 게시 글을 수정하는 맵핑 구문 -->
+<update id="updateBoard" parameterType="MatchingBoard">
+	UPDATE matching
+		SET title=#{title}, local=#{local}, bloodtype=#{bloodtype}, blood_donation=#{bloodDonation}, content=#{content},  write_date = SYSDATE()
+	WHERE no = #{no}
+</update>
+
+<!-- no에 해당하는 게시 글의 비밀번호를 가져오는 맵핑 구문 -->
+<select id="isPassCheck" resultType="String">
+	SELECT pass FROM matching WHERE no = #{no}
+</select>
+
+<!-- 게시글 리스트 가져오는 구문 -->
+<select id = "matchingBoardList" parameterType="hashmap" resultType="MatchingBoard">
+	SELECT
+		no,
+		title,
+		writer,
+		write_date AS writeDate,
+		read_count AS readCount,
+		content,
+		pass,
+		local,
+		bloodtype,
+		blood_donation AS bloodDonation
+	FROM matching
+	<where>
+		<if test = "type == 'title'">
+			title LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="type == 'writer'">
+			writer LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+		<if test="type == 'content'">
+			content LIKE CONCAT('%', #{keyword}, '%')
+		</if>
+	</where>
+		ORDER BY no DESC
+		LIMIT #{startRow}, #{num}
+</select>
+
+<!-- no에 해당하는 게시글 하나를 가져오는 맵핑구문 -->
+<select id="getBoard" resultType="MatchingBoard" resultMap="boardResultMap">
+	SELECT * FROM matching WHERE no = #{no}
+</select>
+
+<!-- 게시 글을 테이블에 추가하는 맵핑 구문  -->
+<insert id="insertBoard" parameterType="MatchingBoard" useGeneratedKeys="true" keyProperty="no">
+	INSERT INTO matching(title, writer, write_date, read_count, content, pass, local, bloodtype, blood_donation)
+		VALUES(#{title}, #{writer}, SYSDATE(), #{readCount}, #{content}, #{pass}, #{local}, #{bloodtype}, #{bloodDonation})
+</insert>
+
+<resultMap id="boardResultMap" type="MatchingBoard">
+	<id property = "no" column = "no" />
+	<result property = "title" column = "title" />
+	<result property = "writer" column = "writer" />
+	<result property = "writeDate" column = "write_date" />
+	<result property = "readCount" column = "read_count" />
+	<result property = "content" column = "content" />
+	<result property = "pass" column = "pass" />
+	<result property = "local" column = "local" />
+	<result property = "bloodtype" column = "bloodtype" />
+	<result property = "bloodDonation" column = "blood_donation" />
+</resultMap>
+</mapper>
