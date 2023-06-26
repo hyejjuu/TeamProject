@@ -24,9 +24,9 @@
                        		    <button type="button" class="btn btn-outline-primary me-2">뭐넣지?</button>
                           		<a href="login"><button type="button" class="btn btn-primary">로그인</button></a>
                         </c:if>  
-                         <c:if test="${sessionScope.isLogin and not sessionScope.member.id == 'admin'}">
+                         <c:if test="${sessionScope.isLogin and not sessionScope.member.id != 'admin'}">
                          	   <a href="logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
-                               <a href="myPage"><button type="button" class="btn btn-danger"> 마이페이지</button></a>
+                               <a href="#"><button type="button" class="btn btn-danger"> 마이페이지</button></a>
                          </c:if>
                      </div>
 			</div>
