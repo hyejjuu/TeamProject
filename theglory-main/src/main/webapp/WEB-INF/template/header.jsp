@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>    
   <div class="row">
     <div class="col-12">
   
@@ -19,8 +20,14 @@
 					<li><a href="#" class="nav-link px-2 text-black"> 헌혈 : 더 글로리</a></li>
 				    </ul>
 				    <div class="col-md-3 text-end">
-                          <button type="button" class="btn btn-outline-primary me-2">뭐넣지?</button>
-                          <button type="button" class="btn btn-primary">로그인</button>
+                         <c:if test="${not sessionScope.isLogin}">
+                       		    <button type="button" class="btn btn-outline-primary me-2">뭐넣지?</button>
+                          		<a href="login"><button type="button" class="btn btn-primary">로그인</button></a>
+                        </c:if>  
+                         <c:if test="${sessionScope.isLogin and not sessionScope.member.id == 'admin'}">
+                         	   <a href="logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
+                               <a href="myPage"><button type="button" class="btn btn-danger"> 마이페이지</button></a>
+                         </c:if>
                      </div>
 			</div>
 		</div>

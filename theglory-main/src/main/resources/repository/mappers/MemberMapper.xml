@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.teamproject.theglory.mapper.MemberMapper">
+	
+	<resultMap type="Member" id="MemberResultMap">
+       <id property="id" column="member_id"/>
+       <result property="pass" column="member_pass"/>
+       <result property="name" column="member_name"/>  
+       <result property="bloodType" column="bloodtype"/>     
+       <result property="gender" column="member_gender"/>     
+       <result property="birth" column="member_birth"/>     
+       <result property="address" column="member_address"/>     
+          <result property="verify" column="verify"/>     
+    </resultMap>
+	
+	<select id="getMember" resultType="Member" resultMap="MemberResultMap">
+	     select*from member where member_id = #{id}
+	</select>		
+	
+</mapper>
+	
