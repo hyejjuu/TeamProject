@@ -1,0 +1,14 @@
+# Git 버전 관리에서 제외할 파일 설정
+# 모든 .class 파일 제외
+*.class
+
+# DB 로그인 정보 - DB에 접속할 수 있는 민감한 정보이므로 제외
+/src/main/resources/datasource/*.properties
+
+# 특정 위치에 있는 폴더와 그 안에 있는 모든 내용 제외
+/webapp/resources/bootstrap/
+/webapp/resources/js/jquery*.*
+/webapp/WEB-INF/classes/
+
+# 루트 하위의 모든 폴더의 모든 .log 파일 제외
+/**/*.log
