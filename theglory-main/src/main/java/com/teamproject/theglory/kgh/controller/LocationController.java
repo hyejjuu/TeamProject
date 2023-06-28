@@ -36,7 +36,7 @@ public class LocationController {
 		
 		System.out.print(location);
 		
-		return "searchMap";
+		return "kgh/searchMap";
 	}
 	
 	
@@ -49,7 +49,7 @@ public class LocationController {
 		
 		System.out.print("search : " + location);
 		
-		return "searchMap";
+		return "kgh/searchMap";
 	}
 
 }
