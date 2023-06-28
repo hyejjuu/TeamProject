@@ -53,11 +53,11 @@
 			<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Menu</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">공지사항 </a></li>
+					<li class="nav-item"><a class="nav-link" href="notificationList">공지사항 </a></li>
 					<li class="nav-item"><a class="nav-link" href="searchMap">장소찾기 </a></li>
 					<li class="nav-item"><a class="nav-link">예약 </a></li>
 					<li class="nav-item"><a class="nav-link">전자문진 </a></li>
-					<li class="nav-item"><a class="nav-link" hef="matchingBoardList">매칭게시판 </a></li>
+					<li class="nav-item"><a class="nav-link" href="matchingBoardList">매칭게시판 </a></li>
 					<li class="nav-item"><a class="nav-link">굿즈 </a></li>
 					<li class="nav-item"><a class="nav-link">뉴스/기사 </a></li>
 				</ul>

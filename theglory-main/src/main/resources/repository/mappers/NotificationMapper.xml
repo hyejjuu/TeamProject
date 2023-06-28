@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+			   <!--com.teamproject.theglory.mapper.NotificationMapper  -->
+<mapper namespace="com.teamproject.theglory.mapper.NotificationMapper" >
+	
+	<select id="notificationList" parameterType="hashmap" resultType="Notification">
+		SELECT 
+			no, 
+			title, 
+			writer, 
+			content, 
+			reg_date AS regDate,
+			read_count AS readCount,
+			pass
+		FROM notification
+		<where>
+			<if test="type == 'title'">
+			title LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'writer'">
+			writer LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'content'">
+			content LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+		
+		ORDER BY no DESC
+		LIMIT #{startRow}, #{num}
+	</select>
+	
+	<select id="getNotificationCount" resultType="int">
+		SELECT 
+			COUNT(no) 
+		FROM notification
+		<where>
+			<if	 test="type == 'title'">
+				title LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'writer'">
+				writer LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'content'">
+				content LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+	</select>
+	
+	<select id="getNotification" resultType="Notification" resultMap="notificationResultMap">
+		SELECT 
+			* 
+		FROM notification 
+		WHERE no = #{no}
+	</select>
+		
+	<insert id="insertNotification" parameterType="Notification"
+		useGeneratedKeys="true" keyProperty="no">
+		INSERT INTO notification(title, writer, content, 
+				reg_date, read_count, pass)
+				
+			VALUES(#{title}, #{writer}, #{content}, 
+				SYSDATE(), #{readCount}, #{pass})
+	</insert>
+		
+	<select id="isPassCheck" resultType="String">
+		SELECT 
+			pass
+		FROM notification
+		WHERE no = #{no}
+	</select>
+		
+	<update id="updateNotification" parameterType="Notification">
+		UPDATE notification 
+			SET title = #{title}, content = #{content},
+				reg_date = SYSDATE()
+		WHERE no = #{no}
+	</update>
+	
+
+	<delete id="deleteNotification">
+		DELETE FROM notification
+		WHERE no = #{no}
+	</delete>
+	
+	<update id="incrementReadCount">
+		UPDATE notification
+		SET read_count = read_count + 1
+		WHERE no = #{no}
+	</update>
+	
+	<resultMap id="notificationResultMap" type="Notification">
+		<id property="no" column="no" />
+		<result property="title" column="title" />
+		<result property="writer" column="writer" />
+		<result property="content" column="content" />
+		<result property="regDate" column="reg_date" />
+		<result property="readCount" column="read_count" />
+		<result property="pass" column="pass" />
+	</resultMap>
+</mapper>	
+
+
+
