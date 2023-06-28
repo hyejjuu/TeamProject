@@ -17,11 +17,11 @@
                       <path fill-rule="evenodd" d="M4.553 7.776c.82-1.641 1.717-2.753 2.093-3.13l.708.708c-.29.29-1.128 1.311-1.907 2.87l-.894-.448z" />
                     </svg>
 
-					<li><a href="#" class="nav-link px-2 text-black"> 헌혈 : 더 글로리</a></li>
+					<li><a href="main" class="nav-link px-2 text-black"> 헌혈 : 더 글로리</a></li>
 				    </ul>
 				    <div class="col-md-3 text-end">
                          <c:if test="${not sessionScope.isLogin}">
-                       		    <button type="button" class="btn btn-outline-primary me-2">뭐넣지?</button>
+                       		    <a href="main"><button type="button" class="btn btn-outline-primary me-2">메인 페이지로</button></a>
                           		<a href="login"><button type="button" class="btn btn-primary">로그인</button></a>
                         </c:if>  
                          <c:if test="${sessionScope.isLogin and not sessionScope.member.id != 'admin'}">
