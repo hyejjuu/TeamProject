@@ -57,7 +57,7 @@
 					<li class="nav-item"><a class="nav-link">장소찾기 </a></li>
 					<li class="nav-item"><a class="nav-link">예약 </a></li>
 					<li class="nav-item"><a class="nav-link">전자문진 </a></li>
-					<li class="nav-item"><a class="nav-link" hef="matchingBoardList">매칭게시판 </a></li>
+					<li class="nav-item"><a class="nav-link" href="matchingBoardList">매칭게시판 </a></li>
 					<li class="nav-item"><a class="nav-link">굿즈 </a></li>
 					<li class="nav-item"><a class="nav-link">뉴스/기사 </a></li>
 				</ul>

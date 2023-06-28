@@ -1,7 +1,7 @@
 
 ## DATABASE 생성 및 선택
-CREATE DATABASE IF NOT EXISTS theglory_notification;
-use theglory_notification;
+CREATE DATABASE IF NOT EXISTS theglory;
+use theglory;
 
 -- 게시글 번호, 제목, 내용, 글쓴이, 날짜, 조회수
 -- no, title, content, writer, reg_date, read_count, pass
