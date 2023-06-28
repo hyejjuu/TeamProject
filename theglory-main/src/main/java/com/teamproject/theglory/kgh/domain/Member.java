@@ -1,64 +1,101 @@
 package com.teamproject.theglory.kgh.domain;
 
-public class Member {
-   
-	private String id;
-	private String pass;
-	private String name;
-	private String bloodType;
-	private String gender;
-	private String birth;
-    private String address;
-    private int verify;
+import java.sql.Timestamp;
+
+public class Member {	
 	
-    public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
+	private String name, id, pass, email, phone, birth, bloodtype, gender;
+	private boolean  emailGet;
+	private Timestamp regDate;		
+	private int verify;
+	
+	public Member() { }
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBloodType() {
-		return bloodType;
+
+	public String getId() {
+		return id;
 	}
-	public void setBloodType(String bloodType) {
-		this.bloodType = bloodType;
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getGender() {
-		return gender;
+
+	public String getPass() {
+		return pass;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
 	public String getBirth() {
 		return birth;
 	}
+
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	public String getAddress() {
-		return address;
+
+	public String getBloodtype() {
+		return bloodtype;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+
+	public void setBloodtype(String bloodtype) {
+		this.bloodtype = bloodtype;
 	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public boolean isEmailGet() {
+		return emailGet;
+	}
+
+	public void setEmailGet(boolean emailGet) {
+		this.emailGet = emailGet;
+	}
+
+	public Timestamp getRegDate() {
+		return regDate;
+	}
+
+	public void setRegDate(Timestamp regDate) {
+		this.regDate = regDate;
+	}	
+	
 	public int getVerify() {
 		return verify;
 	}
+	
 	public void setVerify(int verify) {
 		this.verify = verify;
 	}
-    	
-    
 }
