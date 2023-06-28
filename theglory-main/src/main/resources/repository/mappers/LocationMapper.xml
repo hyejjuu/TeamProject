@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<!-- http://www.mybatis.org/mybatis-3/ko/index.html 참고 -->
+	
+<mapper namespace="com.teamproject.theglory.mapper.LocationMapper">
+
+<select id="locationMap" resultType="LocationMap" resultMap="LocationMapResultMap">
+   SELECT location_name , location_address , location_tel , latitude , longitude FROM location   
+</select>
+
+<select id="searchAction" resultType="LocationMap" resultMap="LocationMapResultMap">
+      select location_name , location_address , location_tel , latitude , longitude 
+      from location where location_address like CONCAT('%', #{locationAddress},'%')
+</select>
+
+<resultMap type="LocationMap" id="LocationMapResultMap">
+   <id property="locationName" column="location_name"/>
+   <result property="locationAddress" column="location_address"/>    
+   <result property="tel" column="location_tel"/>      
+   <result property="latitude" column="latitude"/>  
+   <result property="longitude" column="longitude"/>          
+</resultMap>
+</mapper>
