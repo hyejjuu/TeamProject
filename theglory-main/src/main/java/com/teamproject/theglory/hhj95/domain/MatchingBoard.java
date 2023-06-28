@@ -1,6 +1,6 @@
 package com.teamproject.theglory.hhj95.domain;
 
-import com.google.protobuf.Timestamp;
+import java.sql.Timestamp;
 
 public class MatchingBoard {
 	

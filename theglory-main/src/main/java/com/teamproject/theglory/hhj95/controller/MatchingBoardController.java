@@ -28,7 +28,7 @@ public class MatchingBoardController {
 		this.boardService = boardService;
 	}
 	
-	@RequestMapping(value= {"/list", "/matchingBoardList"}, method=RequestMethod.GET)
+	@RequestMapping("/matchingBoardList")
 	public String matchingBoardList(Model model, 
 														@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
 														@RequestParam(value = "type", required = false, defaultValue = "null") String type,
@@ -144,7 +144,7 @@ public class MatchingBoardController {
 		return "redirect:matchingBoardList";
 	}
 	
-	@RequestMapping({"/delete", "deleteBoard"})
+	@RequestMapping({"/delete", "deleteMatchingBoard"})
 	public String deleteBoard(HttpServletResponse response, PrintWriter out, int no, String pass, RedirectAttributes reAttrs,
 											@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
 											@RequestParam(value = "type", required = false, defaultValue = "null") String type,

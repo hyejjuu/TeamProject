@@ -16,7 +16,15 @@
 	<bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath:repository/mappers/**/*Mapper.xml" />
-		<property name="typeAliasesPackage" value="com.teamproject.theglory.*.domain" />
+		
+		<!-- 도메인 클래스 추가는 list안에 value에 추가해주세요 -->
+		<property name="typeAliases" >
+			<list>
+				<value>com.teamproject.theglory.hhj95.domain.MatchingBoard</value>
+				<value>com.teamproject.theglory.hhj95.domain.MatchingReply</value>
+				<value>com.teamproject.theglory.kgh.domain.Member</value>
+			</list>
+		</property>
 			
 	</bean>
 	
