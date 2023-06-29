@@ -9,6 +9,8 @@ public interface LocationDao {
    
 	public abstract List<LocationMap> Map();
 	
-	public abstract List<LocationMap> Map2(String locationAddress);
+    public abstract List<LocationMap> addressSearch(String locationAddress);
+	
+	public abstract List<LocationMap> areaSearch(int areaNo);
 	
 }

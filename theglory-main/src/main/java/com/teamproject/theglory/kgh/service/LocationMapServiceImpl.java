@@ -23,12 +23,16 @@ public class LocationMapServiceImpl implements LocationMapService {
 	}
 	
 	@Override
-	public List<LocationMap> Map2(String locationAddress) {		
+	public List<LocationMap> addressSearch(String locationAddress) {		
+				
+		return locationDao.addressSearch(locationAddress);
 		
-		System.out.println(locationAddress);
-		
-		return locationDao.Map2(locationAddress);
-		
+	}
+
+	@Override
+	public List<LocationMap> areaSearch(int areaNo) {
+
+		return locationDao.areaSearch(areaNo);
 	}
 
 }

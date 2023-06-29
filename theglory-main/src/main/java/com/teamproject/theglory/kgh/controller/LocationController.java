@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,14 +41,23 @@ public class LocationController {
 	}
 	
 	
-	@RequestMapping(value="searchAction" , method=RequestMethod.POST) 
-	public String locationMap2(Model model , String locationAddress) {
+	@RequestMapping(value="addressAction" , method=RequestMethod.POST) 
+	public String addressAction(Model model , String locationAddress) {
 		
-		List<LocationMap> location = serviceLM.Map2(locationAddress);
-		
+		List<LocationMap> location = serviceLM.addressSearch(locationAddress);
+		    
 		model.addAttribute("location", location);
 		
-		System.out.print("search : " + location);
+		return "kgh/searchMap";
+	}
+	
+	
+	@RequestMapping(value="areaAction" , method=RequestMethod.POST) 
+	public String areaAction(Model model , @RequestParam(value = "areaNo", required = false, defaultValue = "1") int areaNo) {
+			
+	    List<LocationMap> areaList = serviceLM.areaSearch(areaNo);
+		
+		model.addAttribute("areaList", areaList);
 		
 		return "kgh/searchMap";
 	}

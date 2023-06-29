@@ -27,8 +27,15 @@ public class LocationDaoImpl implements LocationDao {
 	}
 	
 	@Override
-	public List<LocationMap> Map2(String locationAddress) {		
-		return sqlSession.selectList(NAME_SPACE+".searchAction" , locationAddress);
+	public List<LocationMap> addressSearch(String locationAddress) {		
+		return sqlSession.selectList(NAME_SPACE+".addressAction" , locationAddress);
 	}
+
+	@Override
+	public List<LocationMap> areaSearch(int areaNo) {
+		
+		return sqlSession.selectList(NAME_SPACE+".areaAction" , areaNo);
+	}
+
 
 }

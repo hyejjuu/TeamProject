@@ -9,72 +9,10 @@
     <h2>헌혈의집 찾기</h2>
     <hr>
   </div>
- <form class="addressForm" name="adderessForm" method="post" action="searchAction">
-    <div class="container pt-5">
-       <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">모두선택</div>
-         <div class="col-4 border border-lightgray">
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample1">
-           <label class="form-check-label" for="checkboxExample1">
-              모두선택
-          </label>
-         </div>
-       </div>     
-         <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">헌혈종류 선택</div>
-         <div class="col-4 border border-lightgray">
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample2">
-           <label class="form-check-label" for="checkboxExample2">
-               전혈
-          </label>
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample3">
-           <label class="form-check-label" for="checkboxExample3">
-               혈장
-          </label>
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample4">
-           <label class="form-check-label" for="checkboxExample4">
-               혈소판
-          </label>
-         </div>
-       </div>
-         <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">운영정보 선택</div>
-         <div class="col-4 border border-lightgray">
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample5">
-           <label class="form-check-label" for="checkboxExample5">
-               평일
-          </label>
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample6">
-           <label class="form-check-label" for="checkboxExample6">
-              주말
-          </label>
-             <input class="form-check-input" type="checkbox" value="" id="checkboxExample7">
-           <label class="form-check-label" for="checkboxExample7">
-               공휴일
-          </label>
-             <input class="form-check-input" type="checkbox" value="" id="checkboxExample8">
-           <label class="form-check-label" for="checkboxExample8">
-            18시 이후 운영
-          </label>
-         </div>
-       </div>  
-         <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">편의시설 선택</div>
-         <div class="col-4 border border-lightgray">
-           <input class="form-check-input" type="checkbox" value="" id="checkboxExample9">
-           <label class="form-check-label" for="checkboxExample9">
-               주차가능
-          </label>
-             <input class="form-check-input" type="checkbox" value="" id="checkboxExample10">
-           <label class="form-check-label" for="checkboxExample10">
-               지하철인근
-          </label>
-             <input class="form-check-input" type="checkbox" value="" id="checkboxExample11">
-           <label class="form-check-label" for="checkboxExample11">
-               인터넷이용
-          </label>
-         </div>
-       </div>
+
+    <div class="container pt-5"> 
+    
+  <form class="addressForm" name="adderessForm" method="post" action="addressAction">
         <div class="row justify-content-center border border-lightgray">
          <div class="col-2 border border-lightgray bg-light">지역 선택</div>
          <div class="col-4 border border-lightgray d-flex align-items-center">
@@ -95,31 +33,47 @@
          <button class="btn btn-primary" type="submit" id="button-addon2">검색</button>
          </div> 
        </div>
+   </form>     
          <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">혈액원 선택</div>
-         <div class="col-4 border border-lightgray">
-  
-          <select class="form-control bg-primary text-white" style="width: 100px;">
-           <option value="">#</option>
-           <option value="option1">서울</option>
-          <option value="option2">경기</option>
-          <option value="option3">수원</option>
-         </select>
-       </div>
-       </div>  
-         <div class="row justify-content-center border border-lightgray">
-         <div class="col-4 border border-lightgray"> 
-           <div class="input-group mb-3">
+         
+              <div class="col-4 border border-lightgray"> 
+                  <div class="input-group mb-3">
  
-  <div class="input-group-append"> &nbsp;
-   
-  </div>
-</div>
-         </div>
+                     <div class="input-group-append"> &nbsp;</div>
+                </div>
+        
+       </div>
+       </div>   
+      <form class="addressForm" name="adderessForm" method="post" action="areaAction"> 
+         <div class="row justify-content-center border border-lightgray">
+                <div class="col-2 border border-lightgray bg-light">혈액원 선택</div>
+          <div class="col-4 border border-lightgray d-flex align-items-center">
+  
+          <select class="form-control" style="width:150px;"  name="areaNo">
+           <option value="">#</option>
+           <option value="1">서울중앙혈액원</option>
+          <option value="3">서울동부혈액원</option>
+          <option value="2">서울남부혈액원</option>
+          <option value="6">인천혈액원</option>
+          <option value="5">경기혈액원</option>
+          <option value="7">강원혈액원</option>
+          <option value="8">충북혈액원</option>
+          <option value="9">대전세종충남혈액원</option>
+          <option value="10">전북혈액원</option>
+          <option value="12">대구혈액원</option>
+          <option value="14">울산혈액원</option>   
+           <option value="13">경남혈액원</option>
+          <option value="4">부산혈액원</option> 
+          <option value="11">광주전남현액원</option>
+          <option value="15">제주혈액원</option>
+         </select>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-danger" type="submit" id="adButton">검색</button>
        </div>             
     </div> 
-    
-</form>    
+    </form>
+ </div>    
+
 <div class="container pt-5">    
  
       <div class="row justify-content-center border border-lightgray">
@@ -132,8 +86,7 @@
                </div>
             </div>
          </div>
-       </div>      
-    
+       </div>          
 </div>
 
 <div class="container pt-5">
@@ -198,24 +151,68 @@ document.getElementById("sido").addEventListener("change", function() {
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
-        center: new kakao.maps.LatLng(37.5132936, 126.925679), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(37.471666, 126.937666), // 지도의 중심좌표
         level: 8 // 지도의 확대 레벨
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
  
 //마커를 표시할 위치와 title 객체 배열입니다 
+//console.log("${location}");
 
-console.log("${location}");
 
-var positions = [
-	<c:forEach var="l" items="${location}" varStatus="status">  
-    {    
-        title: '${l.locationName}', 
-        latlng: new kakao.maps.LatLng(${l.latitude}, ${l.longitude})    
-    }${!status.last ? ',' : ''}
-   </c:forEach>
-];
+let latitudeSum = 0; // latitude의 합을 저장할 변수 추가
+let latitudeCount = 0; // latitude의 개수를 저장할 변수 추가
+let longitudeSum = 0; 
+let longitudeCount = 0
+var positions = [];
+
+<c:choose>
+<c:when test="${not empty location}">
+    <c:forEach var="l" items="${location}" varStatus="status">
+    positions.push({
+        title: '${l.locationName}',
+        latlng: new kakao.maps.LatLng(${l.latitude}, ${l.longitude})
+    });
+    latitudeSum += ${l.latitude}; // 각 latitude 값을 더함
+    latitudeCount++; // latitude의 개수 증가
+    longitudeSum += ${l.longitude}; // 각 latitude 값을 더함
+    longitudeCount++; // latitude의 개수 증가
+    </c:forEach>
+</c:when>
+<c:when test="${not empty areaList}">
+    <c:forEach var="a" items="${areaList}" varStatus="status">
+    positions.push({
+        title: '${a.locationName}',
+        latlng: new kakao.maps.LatLng(${a.latitude}, ${a.longitude})
+    });
+    latitudeSum += ${a.latitude}; // 각 latitude 값을 더함
+    latitudeCount = ${areaList.size()};
+    longitudeSum += ${a.longitude}; // 각 latitude 값을 더함
+    longitudeCount = ${areaList.size()};
+    </c:forEach>
+
+</c:when>
+</c:choose>
+console.log("갯수"+latitudeCount);
+console.log("위도"+latitudeSum);
+console.log("갯수"+longitudeCount);
+console.log("경도"+longitudeSum);
+
+let slatitude= Number(latitudeSum) / Number(latitudeCount);
+
+let slongitude = Number(longitudeSum) / Number(longitudeCount);
+
+console.log(slatitude);
+console.log(slongitude);
+
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(slatitude, slongitude), // 지도의 중심좌표
+        level: 8 // 지도의 확대 레벨
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 // 마커 이미지의 이미지 주소입니다
 var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
@@ -252,13 +249,33 @@ for (var i = 0; i < positions.length; i ++) {
         <div class="col border-bottom-3 border-lightgray py-4">주소</div>
 
         <div class="col border-bottom-3 border-lightgray py-4">전화번호</div>
-   <c:forEach var="l" items="${location}" varStatus="status">       
-        <div class="row">
-         <div class="col">${l.locationName}</div>
-         <div class="col">${l.locationAddress}</div>
-         <div class="col">${l.tel}</div>
-        </div>    
-   </c:forEach>    
+       
+        <div class="col border-bottom-3 border-lightgray py-4"></div>
+<c:choose>
+    <c:when test="${not empty location}">
+        <c:forEach var="l" items="${location}" varStatus="status">
+            <div class="row">
+                <div class="col">${l.locationName}</div>
+                <div class="col">${l.locationAddress}</div>
+                <div class="col">${l.tel}</div>
+                  <div class="col"><a href="rvs?locationNo=${l.locationNo}"><button class="btn btn-danger" type="button">예약</button></a></div>
+            </div>
+        </c:forEach>
+    </c:when>
+    
+    <c:when test="${not empty areaList}">
+        <c:forEach var="a" items="${areaList}" varStatus="status">
+            <div class="row">
+                <div class="col">${a.locationName}</div>
+                <div class="col">${a.locationAddress}</div>
+                <div class="col">${a.tel}</div>
+                <div class="col"><a href="rvs?locationNo=${a.locationNo}"><button class="btn btn-danger" type="button">예약</button></a></div>
+            </div>
+        </c:forEach>
+    </c:when>
+</c:choose>
+
        </div>
 </div>
+
 
