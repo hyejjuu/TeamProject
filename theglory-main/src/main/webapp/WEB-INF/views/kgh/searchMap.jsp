@@ -161,10 +161,10 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 //console.log("${location}");
 
 
-let latitudeSum = 0; // latitude의 합을 저장할 변수 추가
+
 let latitudeCount = 0; // latitude의 개수를 저장할 변수 추가
-let longitudeSum = 0; 
 let longitudeCount = 0
+
 var positions = [];
 
 <c:choose>
@@ -174,9 +174,7 @@ var positions = [];
         title: '${l.locationName}',
         latlng: new kakao.maps.LatLng(${l.latitude}, ${l.longitude})
     });
-    latitudeSum += ${l.latitude}; // 각 latitude 값을 더함
     latitudeCount++; // latitude의 개수 증가
-    longitudeSum += ${l.longitude}; // 각 latitude 값을 더함
     longitudeCount++; // latitude의 개수 증가
     </c:forEach>
 </c:when>
@@ -186,29 +184,36 @@ var positions = [];
         title: '${a.locationName}',
         latlng: new kakao.maps.LatLng(${a.latitude}, ${a.longitude})
     });
-    latitudeSum += ${a.latitude}; // 각 latitude 값을 더함
-    latitudeCount = ${areaList.size()};
-    longitudeSum += ${a.longitude}; // 각 latitude 값을 더함
-    longitudeCount = ${areaList.size()};
+    latitudeCount++; // latitude의 개수 증가
+    longitudeCount++; // latitude의 개수 증가
     </c:forEach>
-
 </c:when>
 </c:choose>
-console.log("갯수"+latitudeCount);
-console.log("위도"+latitudeSum);
-console.log("갯수"+longitudeCount);
-console.log("경도"+longitudeSum);
 
-let slatitude= Number(latitudeSum) / Number(latitudeCount);
+console.log("갯수: " + latitudeCount);
+console.log("갯수: " + longitudeCount);
 
-let slongitude = Number(longitudeSum) / Number(longitudeCount);
+positions.sort(function(a, b) {
+    return a.latlng - b.latlng;
+});
 
-console.log(slatitude);
-console.log(slongitude);
+let middleIndex = Math.floor(positions.length / 2);
+let clatitude;
+let clongitude;
 
+if (positions.length % 2 === 0) {
+    clatitude = (positions[middleIndex].latlng.getLat() + positions[middleIndex - 1].latlng.getLat()) / 2;
+    clongitude = (positions[middleIndex].latlng.getLng() + positions[middleIndex - 1].latlng.getLng()) / 2;
+} else {
+    clatitude = positions[middleIndex].latlng.getLat();
+    clongitude = positions[middleIndex].latlng.getLng();
+}
+
+console.log("중앙값 (위도): " + clatitude);
+console.log("중앙값 (경도): " + clongitude);
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
-        center: new kakao.maps.LatLng(slatitude, slongitude), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(clatitude, clongitude), // 지도의 중심좌표
         level: 8 // 지도의 확대 레벨
     };
 
@@ -277,5 +282,3 @@ for (var i = 0; i < positions.length; i ++) {
 
        </div>
 </div>
-
-
