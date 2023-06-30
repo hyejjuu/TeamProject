@@ -7,7 +7,7 @@ public class LocationMap {
     private String tel;
     private float latitude;
     private float longitude;
-    private int areaNo;
+    private Integer areaNo;
     private int locationNo;
 	
     public String getLocationName() {
@@ -40,10 +40,10 @@ public class LocationMap {
 	public void setLongitude(float longitude) {
 		this.longitude = longitude;
 	}
-	public int getAreaNo() {
+	public Integer getAreaNo() {
 		return areaNo;
 	}
-	public void setAreaNo(int areaNo) {
+	public void setAreaNo(Integer areaNo) {
 		this.areaNo = areaNo;
 	}
 	public int getLocationNo() {
@@ -52,5 +52,5 @@ public class LocationMap {
 	public void setLocationNo(int locationNo) {
 		this.locationNo = locationNo;
 	}
-
+	
 }

@@ -1,6 +1,7 @@
 package com.teamproject.theglory.kgh.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,36 +29,40 @@ public class LocationController {
 		this.serviceLM = serviceLM;	
 	}
 	
-	@RequestMapping(value="searchMap" , method=RequestMethod.GET)
-	public String locationMap(Model model) {
+	@RequestMapping(value="searchMap")
+	public String locationMap(Model model , 	@RequestParam(value="pageNum", required=false, 
+			defaultValue="1") int pageNum  , String type) {
 		
-		List<LocationMap> location = serviceLM.Map();
-		
-		model.addAttribute("location", location);
-		
-		System.out.print(location);
+		Map<String, Object> modelMap = serviceLM.Map(pageNum , type);
+
+		model.addAllAttributes(modelMap);
 		
 		return "kgh/searchMap";
 	}
 	
 	
-	@RequestMapping(value="addressAction" , method=RequestMethod.POST) 
-	public String addressAction(Model model , String locationAddress) {
+	@RequestMapping(value="addressAction" , method=RequestMethod.GET) 
+	public String addressAction(Model model , String type,
+			@RequestParam(value="pageNum", required=false, 
+			defaultValue="1") int pageNum, String locationAddress) {
 		
-		List<LocationMap> location = serviceLM.addressSearch(locationAddress);
+		Map<String, Object> modelMap = serviceLM.addressSearch(pageNum,type,locationAddress);
 		    
-		model.addAttribute("location", location);
+		model.addAllAttributes(modelMap);
 		
 		return "kgh/searchMap";
 	}
 	
 	
-	@RequestMapping(value="areaAction" , method=RequestMethod.POST) 
-	public String areaAction(Model model , @RequestParam(value = "areaNo", required = false, defaultValue = "1") int areaNo) {
+	@RequestMapping(value="areaAction" , method=RequestMethod.GET) 
+	public String areaAction(Model model  ,String type,
+			@RequestParam(value="pageNum", required=false, 
+			defaultValue="1") int pageNum , @RequestParam(value="areaNo", required=false, 
+			defaultValue="1") Integer areaNo) {
 			
-	    List<LocationMap> areaList = serviceLM.areaSearch(areaNo);
+		Map<String, Object> modelMap = serviceLM.areaSearch(pageNum,type ,areaNo);
 		
-		model.addAttribute("areaList", areaList);
+		model.addAllAttributes(modelMap);
 		
 		return "kgh/searchMap";
 	}

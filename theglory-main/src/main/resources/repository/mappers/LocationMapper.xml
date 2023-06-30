@@ -6,24 +6,43 @@
 	
 <mapper namespace="com.teamproject.theglory.mapper.LocationMapper">
 
-<select id="locationMap" resultType="LocationMap" resultMap="LocationMapResultMap">
-   SELECT location_name , location_address , location_tel , latitude , longitude FROM location   
+<select id="locationMap" resultType="LocationMap" parameterType="hashmap" resultMap="LocationMapResultMap">
+   SELECT location_name , location_address , location_tel , latitude , longitude FROM location 
+   ORDER BY location_no
+   LIMIT #{startRow}, #{num}      
 </select>
 
 <select id="addressAction" resultType="LocationMap" resultMap="LocationMapResultMap">
       select location_name , location_address , location_tel , latitude , longitude , area_no
       ,location_no
-      from location where location_address like CONCAT('%', #{locationAddress},'%')
-  
+      from location where location_address like CONCAT('%', #{locationAddress},'%') 
+      ORDER BY location_no
+      LIMIT #{startRow}, #{num}  
 </select>
 
 
-<select id="areaAction" resultType="LocationMap" resultMap="LocationMapResultMap">
+<select id="areaAction" resultType="LocationMap" parameterType="hashmap" resultMap="LocationMapResultMap">
        select location_name , location_address , location_tel , latitude , longitude , area_no
        ,location_no
-       from location where area_no = #{areaNo};
+       from location where area_no = #{areaNo}
+       ORDER BY location_no
+       LIMIT #{startRow}, #{num}      
 </select> 
 
+<select id="getLocationCount" resultType="int">
+       select count(location_no) from location
+ 
+</select> 
+
+<select id="getAreaCount" resultType="int">
+       select count(location_no) from location
+       where area_no = #{areaNo}
+</select> 
+
+<select id="getAddressCount" resultType="int">
+       select count(location_no) from location
+       where location_address like CONCAT('%', #{locationAddress},'%') 
+</select> 
 
 
 <resultMap type="LocationMap" id="LocationMapResultMap">

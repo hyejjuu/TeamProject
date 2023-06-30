@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
-
   <div class="container pt-5">
     <h2>헌혈의집 찾기</h2>
     <hr>
@@ -12,16 +10,26 @@
 
     <div class="container pt-5"> 
     
-  <form class="addressForm" name="adderessForm" method="post" action="addressAction">
+  <form class="addressForm" name="adderessForm" method="get" action="addressAction">
+      <input type="hidden" name="type" value="address"/>
         <div class="row justify-content-center border border-lightgray">
          <div class="col-2 border border-lightgray bg-light">지역 선택</div>
          <div class="col-4 border border-lightgray d-flex align-items-center">
           <select class="form-control" style="width: 100px;" id="sido">
            <option value="">시도</option>
-           <option value="서울">서울</option>
-          <option value="경기">경기</option>
-          <option value="수원">수원</option>
-         </select>
+                   <option value="서울">서울</option>
+                   <option value="경기">경기</option>
+                   <option value="수원">수원</option>      
+				   <option value="충북">충북</option>
+				   <option value="대전">대전</option>
+				   <option value="전북">전북</option>
+				   <option value="대구">대구</option>
+				   <option value="울산">울산</option>
+				   <option value="경남">경남</option>
+				   <option value="부산">부산</option>
+				   <option value="광주">광주</option>
+				   <option value="제주">제주</option>
+				</select>
             &nbsp;&nbsp;
            <select class="form-control" style="width: 100px;" id="sigungu" name="locationAddress">
            <option value="">시군구</option>
@@ -44,7 +52,8 @@
         
        </div>
        </div>   
-      <form class="addressForm" name="adderessForm" method="post" action="areaAction"> 
+      <form class="addressForm" name="adderessForm" method="get" action="areaAction"> 
+         <input type="hidden" name="type" value="area"/>
          <div class="row justify-content-center border border-lightgray">
                 <div class="col-2 border border-lightgray bg-light">혈액원 선택</div>
           <div class="col-4 border border-lightgray d-flex align-items-center">
@@ -74,20 +83,7 @@
     </form>
  </div>    
 
-<div class="container pt-5">    
- 
-      <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">입력</div>
-         <div class="col-4 border border-lightgray"> 
-           <div class="input-group mb-3">
-  				    <input type="text" class="form-control" name="locationAddress2" placeholder="주소를 입력하세요" aria-label="주소를 입력하세요" aria-describedby="button-addon2">
-     	      <div class="input-group-append"> &nbsp;
-                    <button class="btn btn-danger" type="submit" id="adButton">검색</button>
-               </div>
-            </div>
-         </div>
-       </div>          
-</div>
+
 
 <div class="container pt-5">
     
@@ -168,8 +164,8 @@ let longitudeCount = 0
 var positions = [];
 
 <c:choose>
-<c:when test="${not empty location}">
-    <c:forEach var="l" items="${location}" varStatus="status">
+<c:when test="${not empty locationList}">
+    <c:forEach var="l" items="${locationList}" varStatus="status">
     positions.push({
         title: '${l.locationName}',
         latlng: new kakao.maps.LatLng(${l.latitude}, ${l.longitude})
@@ -245,25 +241,32 @@ for (var i = 0; i < positions.length; i ++) {
 </div>
 </div>
 
+
+
 <div class="container pt-5">
-<p>Total 건</p>
+   
+   
+   <p>Total ${locationCount}건</p>
+   
        <div class="row justify-content-center bg-light border-top border-dark border-3">
       <!--   <div class="col border-bottom-3 border-lightgray py-4">지역</div> -->
-        <div class="col border-bottom-3 border-lightgray py-4">헌협의집</div>
+        <div class="col border-bottom-3 border-lightgray py-4" style="font-weight: bold;">&nbsp; 헌혈의집</div>
 
-        <div class="col border-bottom-3 border-lightgray py-4">주소</div>
+        <div class="col border-bottom-3 border-lightgray py-4">&nbsp; 주소</div>
 
-        <div class="col border-bottom-3 border-lightgray py-4">전화번호</div>
+        <div class="col border-bottom-3 border-lightgray py-4">&nbsp; 전화번호</div>
        
         <div class="col border-bottom-3 border-lightgray py-4"></div>
 <c:choose>
-    <c:when test="${not empty location}">
-        <c:forEach var="l" items="${location}" varStatus="status">
-            <div class="row">
-                <div class="col">${l.locationName}</div>
-                <div class="col">${l.locationAddress}</div>
-                <div class="col">${l.tel}</div>
-                  <div class="col"><a href="rvs?locationNo=${l.locationNo}"><button class="btn btn-danger" type="button">예약</button></a></div>
+    <c:when test="${not empty locationList}">
+        <c:forEach var="l" items="${locationList}" varStatus="status">
+            <div class="row pt-3 border-top border-dark border-1">
+                <div class="col-3" style="font-weight: bold;">${l.locationName}</div>
+                <div class="col-3">${l.locationAddress}</div>
+                <div class="col-3">${l.tel}</div>
+                  <div class="col-3">
+                     <div class="row"><a href="rvs?locationNo=${l.locationNo}"><button class="btn btn-danger" type="button">예약</button></a></div>
+                  </div>
             </div>
         </c:forEach>
     </c:when>
@@ -274,7 +277,13 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col">${a.locationName}</div>
                 <div class="col">${a.locationAddress}</div>
                 <div class="col">${a.tel}</div>
-                <div class="col"><a href="rvs?locationNo=${a.locationNo}"><button class="btn btn-danger" type="button">예약</button></a></div>
+                <div class="col">
+                    <div class="row">
+                    	<div class="col">
+                     		<a href="resvBldHouseStep3?locationNo=${a.locationNo}"><button class="btn btn-danger" type="button">예약</button></a>
+                    	</div>
+                    </div>
+                </div>
             </div>
         </c:forEach>
     </c:when>
@@ -282,3 +291,106 @@ for (var i = 0; i < positions.length; i ++) {
 
        </div>
 </div>
+
+<style>
+
+    .pagination .page-link {
+        background-color: black; /* 페이징 박스의 배경색을 변경 */
+        color: white; /* 페이징 박스의 텍스트 색상을 변경 */
+        border-color: black; /* 페이징 박스의 테두리 색상을 변경 */
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: gray; /* 활성화된 페이지 칸의 배경색을 변경 */
+    }
+
+</style>
+
+<c:choose>
+    <c:when test="${not empty locationList}">
+<div class="col pt-5">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <c:if test="${ startPage > pageGroup }">
+                <li class="page-item">
+                    <a class="page-link text-white" href="searchMap?pageNum=${ startPage - pageGroup }">Pre</a>
+                </li>
+            </c:if>
+            <c:forEach var="i" begin="${startPage}" end="${endPage}">
+                <c:if test="${i == currentPage }">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link bg-dark text-white">${i}</span>
+                    </li>
+                </c:if>
+                <c:if test="${i != currentPage }">
+                    <li class="page-item"><a class="page-link text-white" href="searchMap?pageNum=${ i }">${i}</a></li>
+                </c:if>
+            </c:forEach>
+            <c:if test="${ endPage < pageCount }">
+                <li class="page-item">
+                    <a class="page-link text-white" href="searchMap?pageNum=${ startPage + pageGroup }">Next</a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
+</div>
+   </c:when>
+ <c:when test="${searchOption2 and not empty locationList}">
+<div class="col pt-5">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <c:if test="${ startPage2 > pageGroup2 }">
+                <li class="page-item">
+                    <a class="page-link text-white" href="addressSearch?pageNum=${ startPage2 - pageGroup2 }&type=${type}&locationAddress=${locationAddress}">Pre</a>
+                </li>
+            </c:if>
+            <c:forEach var="i" begin="${startPage2}" end="${endPage2}">
+                <c:if test="${i == currentPage2 }">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link bg-dark text-white">${i}</span>
+                    </li>
+                </c:if>
+                <c:if test="${i != currentPage2 }">
+                    <li class="page-item"><a class="page-link text-white" href="addressSearch?pageNum=${ i }&type=${type}&locationAddress=${locationAddress}">${i}</a></li>
+                </c:if>
+            </c:forEach>
+            <c:if test="${ endPage2 < pageCount2 }">
+                <li class="page-item">
+                    <a class="page-link text-white" href="addressSearch?pageNum=${ startPage2 + pageGroup2 }&type=${type}&locationAddress=${locationAddress}">Next</a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
+</div>
+   </c:when>
+    
+ <c:when test="${searchOption and not empty areaList}">
+   <div class="col pt-5">
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <c:if test="${ startPage2 > pageGroup2 }">
+                <li class="page-item">
+                    <a class="page-link text-white" href="areaAction?pageNum=${ startPage2 - pageGroup2 }&type=${ type }&areaNo=${areaNo}">Pre</a>
+                </li>
+            </c:if>
+            <c:forEach var="i" begin="${startPage2}" end="${endPage2}">
+                <c:if test="${i == currentPage2 }">
+                    <li class="page-item active" aria-current="page">
+                        <span class="page-link bg-dark text-white">${i}</span>
+                    </li>
+                </c:if>
+                <c:if test="${i != currentPage2 }">
+                    <li class="page-item"><a class="page-link text-white" href="areaAction?pageNum=${ i }&type=${ type }&areaNo=${areaNo}">${i}</a></li>
+                </c:if>
+            </c:forEach>
+            <c:if test="${ endPage2 < pageCount2 }">
+                <li class="page-item">
+                    <a class="page-link text-white" href="areaAction?pageNum=${ startPage2 + pageGroup2 }&type=${ type }&areaNo=${areaNo}">Next</a>
+                </li>
+            </c:if>
+        </ul>
+    </nav>
+    </div>
+  </c:when>
+</c:choose>
+
