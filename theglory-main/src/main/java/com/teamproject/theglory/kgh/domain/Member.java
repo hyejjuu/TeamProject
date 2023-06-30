@@ -6,8 +6,7 @@ public class Member {
 	
 	private String name, id, pass, email, phone, birth, bloodtype, gender;
 	private boolean  emailGet;
-	private Timestamp regDate;		
-	private int verify;
+	private Timestamp regDate;
 	
 	public Member() { }
 
@@ -91,11 +90,4 @@ public class Member {
 		this.regDate = regDate;
 	}	
 	
-	public int getVerify() {
-		return verify;
-	}
-	
-	public void setVerify(int verify) {
-		this.verify = verify;
-	}
 }

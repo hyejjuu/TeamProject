@@ -23,6 +23,7 @@
                          <c:if test="${not sessionScope.isLogin}">
                        		    <a href="main"><button type="button" class="btn btn-outline-primary me-2">메인 페이지로</button></a>
                           		<a href="login"><button type="button" class="btn btn-primary">로그인</button></a>
+                          		<a href="joinForm"><button type="button" class="btn btn-primary">회원가입</button></a>
                         </c:if>  
                          <c:if test="${sessionScope.isLogin and not sessionScope.member.id != 'admin'}">
                          	   <a href="logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
