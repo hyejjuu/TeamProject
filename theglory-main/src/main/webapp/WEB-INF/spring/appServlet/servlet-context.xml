@@ -34,7 +34,6 @@
 	<view-controller path="/login" view-name="login"/>
 	<view-controller path = "/matchingBoard" view-name = "matchingBoard" />
 	<view-controller path="/matchingWriteForm" view-name="matchingWriteForm" />
-	
 	<redirect-view-controller path="/matchingWrite" redirect-url="/matchingWriteForm"/>
 
 	
