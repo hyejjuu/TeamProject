@@ -10,7 +10,7 @@
 	
 	<insert id="addMember" parameterType="Member">
 		INSERT INTO member 		
-		VALUES(#{id}, #{name}, #{pass},#{gender}, #{bloodtype}, #{birth}, #{email}, #{phone}, #{emailGet}, SYSDATE())
+		VALUES(#{id}, #{name}, #{pass},#{gender}, #{bloodtype}, #{address}, #{birth}, #{email}, #{phone}, #{emailGet}, SYSDATE())
 	</insert>
 	
 			

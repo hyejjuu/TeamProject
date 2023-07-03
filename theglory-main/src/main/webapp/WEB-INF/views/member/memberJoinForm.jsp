@@ -86,6 +86,14 @@
 			</div>
 			<div class="row my-3">
 				<div class="col-8 offset-2">
+					<label for="address" class="form-label">* 주소(시군구) : </label>
+						<div class="col-md-4">
+							<input type="text" class="form-control" name="address" id="address">
+						</div>
+				</div>
+			</div>
+			<div class="row my-3">
+				<div class="col-8 offset-2">
 					<label for="phone" class="form-label">* 휴 대 폰 인증 : 
 					<span class="point successPhoneChk">휴대폰 번호 입력후 인증번호 보내기를 해주세요</span>	</label>
 					<div class="row">
