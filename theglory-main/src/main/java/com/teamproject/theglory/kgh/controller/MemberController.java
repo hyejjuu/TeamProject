@@ -64,15 +64,11 @@ public class MemberController {
 		 Member member = memberService.getMember(id);
 		 		 		 
 		 session.setAttribute("isLogin", true);
-		 
-		 if (member.getVerify() == 1) {
-			    model.addAttribute("member", member);
-		        return "redirect:/admin";		        
-		    } else {
-		        model.addAttribute("member", member);
-		        return "redirect:/main";
-		    }		 		
+		 model.addAttribute("member", member);
+		 return "redirect:/main";		 		
 	}
+	
+	
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		 session.invalidate();

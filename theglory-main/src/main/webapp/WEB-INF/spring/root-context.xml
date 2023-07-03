@@ -25,6 +25,8 @@
 				<!-- 도메인 클래스 추가는 아래쪽에 해 주세요 -->
 				<value>com.teamproject.theglory.kgh.domain.LocationMap</value>
 				<value>com.teamproject.theglory.khj.domain.Reservation</value>		
+				<value>com.teamproject.theglory.hhj00.domain.Paper</value>
+
 			</list>
 		</property>
 
