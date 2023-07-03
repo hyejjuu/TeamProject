@@ -10,14 +10,16 @@
 
     <div class="container pt-5"> 
     
-  <form class="addressForm" name="adderessForm" method="get" action="addressAction">
-      <input type="hidden" name="type" value="address"/>
-        <div class="row justify-content-center border border-lightgray">
-         <div class="col-2 border border-lightgray bg-light">지역 선택</div>
-         <div class="col-4 border border-lightgray d-flex align-items-center">
-          <select class="form-control" style="width: 100px;" id="sido">
-           <option value="">시도</option>
-                   <option value="서울">서울</option>
+<form class="addressForm form-inline" name="addressForm" method="get" action="addressAction">
+  <input type="hidden" name="type" value="address"/>
+  <div class="row justify-content-center">
+    <div class="col-2 border border-lightgray bg-light">      
+          <label for="sido" class="sr-only">지역 선택</label>
+    </div>
+    <div class="col-4 border border-lightgray d-flex align-items-center">
+      <select class="form-control" style="width: 100px;" id="sido">
+        <option value="">시도</option>
+        <option value="서울">서울</option>
                    <option value="경기">경기</option>
                    <option value="수원">수원</option>      
 				   <option value="충북">충북</option>
@@ -29,38 +31,27 @@
 				   <option value="부산">부산</option>
 				   <option value="광주">광주</option>
 				   <option value="제주">제주</option>
-				</select>
-            &nbsp;&nbsp;
-           <select class="form-control" style="width: 100px;" id="sigungu" name="locationAddress">
-           <option value="">시군구</option>
-           <option value="option1">1</option>
-          <option value="option2">2</option>
-          <option value="option3">3</option>
-         </select>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <button class="btn btn-primary" type="submit" id="button-addon2">검색</button>
-         </div> 
-       </div>
-   </form>     
-         <div class="row justify-content-center border border-lightgray">
-         
-              <div class="col-4 border border-lightgray"> 
-                  <div class="input-group mb-3">
- 
-                     <div class="input-group-append"> &nbsp;</div>
-                </div>
-        
-       </div>
-       </div>   
-      <form class="addressForm" name="adderessForm" method="get" action="areaAction"> 
-         <input type="hidden" name="type" value="area"/>
-         <div class="row justify-content-center border border-lightgray">
-                <div class="col-2 border border-lightgray bg-light">혈액원 선택</div>
-          <div class="col-4 border border-lightgray d-flex align-items-center">
-  
-          <select class="form-control" style="width:150px;"  name="areaNo">
-           <option value="">#</option>
-           <option value="1">서울중앙혈액원</option>
+      </select>
+      &nbsp;&nbsp;
+      <select class="form-control" style="width: 100px;" id="sigungu" name="locationAddress">
+        <option value="">시군구</option>
+      </select>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-primary" type="submit" id="button-addon2">검색</button>
+    </div> 
+  </div>
+</form>
+
+<form class="addressForm form-inline" name="addressForm" method="get" action="areaAction"> 
+  <input type="hidden" name="type" value="area"/>
+  <div class="row justify-content-center">
+    <div class="col-2 border border-lightgray bg-light">
+       <label for="areaNo" class="sr-only">혈액원 선택</label>
+    </div>
+    <div class="col-4 border border-lightgray d-flex align-items-center">
+      <select class="form-control" style="width:150px;" name="areaNo">
+        <option value="">선택해주세요</option>
+        <option value="1">서울중앙혈액원</option>
           <option value="3">서울동부혈액원</option>
           <option value="2">서울남부혈액원</option>
           <option value="6">인천혈액원</option>
@@ -75,12 +66,14 @@
           <option value="4">부산혈액원</option> 
           <option value="11">광주전남현액원</option>
           <option value="15">제주혈액원</option>
-         </select>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn btn-danger" type="submit" id="adButton">검색</button>
-       </div>             
-    </div> 
-    </form>
+      </select>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-danger" type="submit" id="adButton">검색</button>
+    </div>             
+  </div> 
+</form>
+
  </div>    
 
 
@@ -302,6 +295,7 @@ for (var i = 0; i < positions.length; i ++) {
 
     .pagination .page-item.active .page-link {
         background-color: gray; /* 활성화된 페이지 칸의 배경색을 변경 */
+        color: #33FF33;
     }
 
 </style>
@@ -319,11 +313,11 @@ for (var i = 0; i < positions.length; i ++) {
             <c:forEach var="i" begin="${startPage}" end="${endPage}">
                 <c:if test="${i == currentPage }">
                     <li class="page-item active" aria-current="page">
-                        <span class="page-link bg-dark text-white">${i}</span>
+                        <span class="page-link bg-dark text-#33FF33">${i}</span>
                     </li>
                 </c:if>
                 <c:if test="${i != currentPage }">
-                    <li class="page-item"><a class="page-link text-white" href="searchMap?pageNum=${ i }">${i}</a></li>
+                    <li class="page-item"><a class="page-link text-#33FF33" href="searchMap?pageNum=${ i }">${i}</a></li>
                 </c:if>
             </c:forEach>
             <c:if test="${ endPage < pageCount }">
@@ -347,11 +341,11 @@ for (var i = 0; i < positions.length; i ++) {
             <c:forEach var="i" begin="${startPage2}" end="${endPage2}">
                 <c:if test="${i == currentPage2 }">
                     <li class="page-item active" aria-current="page">
-                        <span class="page-link bg-dark text-white">${i}</span>
+                        <span class="page-link bg-dark text-#33FF33">${i}</span>
                     </li>
                 </c:if>
                 <c:if test="${i != currentPage2 }">
-                    <li class="page-item"><a class="page-link text-white" href="addressSearch?pageNum=${ i }&type=${type}&locationAddress=${locationAddress}">${i}</a></li>
+                    <li class="page-item"><a class="page-link text-#33FF33" href="addressSearch?pageNum=${ i }&type=${type}&locationAddress=${locationAddress}">${i}</a></li>
                 </c:if>
             </c:forEach>
             <c:if test="${ endPage2 < pageCount2 }">
@@ -376,11 +370,11 @@ for (var i = 0; i < positions.length; i ++) {
             <c:forEach var="i" begin="${startPage2}" end="${endPage2}">
                 <c:if test="${i == currentPage2 }">
                     <li class="page-item active" aria-current="page">
-                        <span class="page-link bg-dark text-white">${i}</span>
+                        <span class="page-link bg-dark text-#33FF33">${i}</span>
                     </li>
                 </c:if>
                 <c:if test="${i != currentPage2 }">
-                    <li class="page-item"><a class="page-link text-white" href="areaAction?pageNum=${ i }&type=${ type }&areaNo=${areaNo}">${i}</a></li>
+                    <li class="page-item"><a class="page-link text-#33FF33" href="areaAction?pageNum=${ i }&type=${ type }&areaNo=${areaNo}">${i}</a></li>
                 </c:if>
             </c:forEach>
             <c:if test="${ endPage2 < pageCount2 }">

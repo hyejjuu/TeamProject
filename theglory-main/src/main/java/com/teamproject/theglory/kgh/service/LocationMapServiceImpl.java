@@ -99,12 +99,12 @@ public class LocationMapServiceImpl implements LocationMapService {
 			Map<String, Object> modelMap = new HashMap<String, Object>();		
 			
 			modelMap.put("locationList", locationList);
-			modelMap.put("pageCount2", pageCount);
-			modelMap.put("startPage2", startPage);
-			modelMap.put("endPage2", endPage);
-			modelMap.put("currentPage2", currentPage);
+			modelMap.put("pageCount", pageCount);
+			modelMap.put("startPage", startPage);
+			modelMap.put("endPage", endPage);
+			modelMap.put("currentPage", currentPage);
 			modelMap.put("locationCount", locationCount);
-			modelMap.put("pageGroup2", PAGE_GROUP);			
+			modelMap.put("pageGroup", PAGE_GROUP);			
 	        modelMap.put("searchOption2", searchOption2);
 
 			return modelMap;			
