@@ -21,6 +21,7 @@ public class MemberHhj00DaoImpl implements MemberHhj00Dao {
 		this.sqlSession = sqlSession;
 	}
 	
+	
 	// 회원 정보를 회원 테이블에 저장하는 메서드
 	@Override
 	public void addMember(Member member) {
