@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="resources/js/paper.js"></script>
 
 <div class="row justify-content-md-center mt-5 mb-3" id="global-content">
 	<div>
@@ -76,8 +77,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="three" id="2o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -86,9 +87,21 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="three_c" id="2n1"value="발열">발열</label>
-									<label><input type="checkbox" name="three_c" id="2n2"value="인후통">인후통</label>
-									<label><input type="checkbox" name="three_c" id="2n3"value="설사">설사</label>
+									<input class="form-check-input" type="radio" name="three" id="2x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="three_c" class="three_c" id="2n1"value="발열">발열</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="three_c" class="three_c" id="2n2"value="인후통">인후통</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="three_c" class="three_c" id="2n3"value="설사">설사</label>
 								</div>
 							</div>
 						</fieldset>
@@ -103,8 +116,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="week" id="3o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -113,8 +126,18 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="week_c" id="3n1"value="약물복용">약물 복용</label>
-									<label><input type="checkbox" name="week_c" id="3n2"value="주사">주사</label>
+									<input class="form-check-input" type="radio" name="week" id="3x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="week_c" class="week_c" id="3n1"value="약물복용">약물 복용</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="week_c" class="week_c" id="3n2"value="주사">주사</label>
 								</div>
 							</div>
 						</fieldset>
@@ -129,8 +152,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="month" id="4o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -139,12 +162,30 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="month_c" id="4n1"value="반복적인 고열, 춥고 떨림, 땀흘림">반복적인 고열, 춥고 떨림, 땀흘림</label>
-									<label><input type="checkbox" name="month_c" id="4n2"value="의료기관에서 단순 감기 이외의 질병 진단 또는 치료">의료기관에서 단순 감기 이외의 질병 진단 또는 치료</label>
-									<label><input type="checkbox" name="month_c" id="4n3"value="시술(내시경, 조직검사, 레이저 시술 등)">시술(내시경, 조직검사, 레이저 시술 등)</label>
-									<label><input type="checkbox" name="month_c" id="4n4"value="외국 여행">외국 여행</label>
-									<label><input type="checkbox" name="month_c" id="4n5"value="치과치료">치과치료</label>
-									<label><input type="checkbox" name="month_c" id="4n6"value="기타">기타</label>
+									<input class="form-check-input" type="radio" name="month" id="4x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="month_c" class="month_c" id="4n1"value="반복적인 고열, 춥고 떨림, 땀흘림">반복적인 고열, 춥고 떨림, 땀흘림</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="month_c" class="month_c" id="4n2"value="의료기관에서 단순 감기 이외의 질병 진단 또는 치료">의료기관에서 단순 감기 이외의 질병 진단 또는 치료</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="month_c" class="month_c" id="4n3"value="시술(내시경, 조직검사, 레이저 시술 등)">시술(내시경, 조직검사, 레이저 시술 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="month_c" class="month_c" id="4n4"value="외국 여행">외국 여행</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="month_c" class="month_c" id="4n5"value="치과치료">치과치료</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="month_c" class="month_c" id="4n6"value="기타">기타</label>
 								</div>
 							</div>
 						</fieldset>
@@ -159,8 +200,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="months" id="5o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -169,8 +210,18 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="months_c" id="5n1"value="사마귀, 점제거, 피어씽(귀뚫음 등), 문신(반영구화장 포함)">사마귀, 점제거, 피어씽(귀뚫음 등), 문신(반영구화장 포함)</label>
-									<label><input type="checkbox" name="months_c" id="5n2"value="침술, 부항(사혈)">침술, 부항(사혈)</label>
+									<input class="form-check-input" type="radio" name="months" id="5x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="months_c" class="months_c" id="5n1"value="사마귀, 점제거, 피어씽(귀뚫음 등), 문신(반영구화장 포함)">사마귀, 점제거, 피어씽(귀뚫음 등), 문신(반영구화장 포함)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="months_c" class="months_c" id="5n2"value="침술, 부항(사혈)">침술, 부항(사혈)</label>
 								</div>
 							</div>
 						</fieldset>
@@ -208,8 +259,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="year" id="6o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -218,17 +269,45 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="year_c" id="6n1"value="입원">입원</label>
-									<label><input type="checkbox" name="year_c" id="6n2"value="수혈">수혈</label>
-									<label><input type="checkbox" name="year_c" id="6n3"value="수술">수술</label>
-									<label><input type="checkbox" name="year_c" id="6n4"value="경련">경련</label>
-									<label><input type="checkbox" name="year_c" id="6n5"value="예방접종">예방접종</label>
-									<label><input type="checkbox" name="year_c" id="6n6"value="다른 사람이 사용한 주사침에 찔림">다른 사람이 사용한 주사침에 찔림</label>
-									<label><input type="checkbox" name="year_c" id="6n7"value="의식소실">의식소실</label>
-									<label><input type="checkbox" name="year_c" id="6n8"value="마약주사">마약주사</label>
-									<label><input type="checkbox" name="year_c" id="6n9"value="교도소(소년교도소 포함), 구치소 등에 3일 이상 수감">교도소(소년교도소 포함), 구치소 등에 3일 이상 수감</label>
-									<label><input type="checkbox" name="year_c" id="6n10"value="불특정 이성과의 성접촉 또는 남성의 경우 남성과의 성접촉">불특정 이성과의 성접촉 또는 남성의 경우 남성과의 성접촉</label>
-									<label><input type="checkbox" name="year_c" id="6n11"value="기타">기타</label>
+									<input class="form-check-input" type="radio" name="year" id="6x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n1"value="입원">입원</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n2"value="수혈">수혈</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n3"value="수술">수술</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n4"value="경련">경련</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n5"value="예방접종">예방접종</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n6"value="다른 사람이 사용한 주사침에 찔림">다른 사람이 사용한 주사침에 찔림</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n7"value="의식소실">의식소실</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n8"value="마약주사">마약주사</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n9"value="교도소(소년교도소 포함), 구치소 등에 3일 이상 수감">교도소(소년교도소 포함), 구치소 등에 3일 이상 수감</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n10"value="불특정 이성과의 성접촉 또는 남성의 경우 남성과의 성접촉">불특정 이성과의 성접촉 또는 남성의 경우 남성과의 성접촉</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="year_c" class="year_c" id="6n11"value="기타">기타</label>
 								</div>
 							</div>
 						</fieldset>
@@ -243,8 +322,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="every" id="7o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -253,20 +332,54 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="every_c" id="7n1"value="암">암</label>
-									<label><input type="checkbox" name="every_c" id="7n2"value="심장질환">심장질환</label>
-									<label><input type="checkbox" name="every_c" id="7n3"value="신장질환">신장질환</label>
-									<label><input type="checkbox" name="every_c" id="7n4"value="간질환">간질환</label>
-									<label><input type="checkbox" name="every_c" id="7n5"value="당뇨">당뇨병</label>
-									<label><input type="checkbox" name="every_c" id="7n6"value="혈액질환">혈액질환(혈우병, 적혈구증다증 등)</label>
-									<label><input type="checkbox" name="every_c" id="7n7"value="호흡기질환">호흡기질환</label>
-									<label><input type="checkbox" name="every_c" id="7n8"value="피부질환">피부질환(건선 등)</label>
-									<label><input type="checkbox" name="every_c" id="7n9"value="알코올 또는 마약 중독">알코올 또는 마약 중독</label>
-									<label><input type="checkbox" name="every_c" id="7n10"value="정신질환">정신질환</label>
-									<label><input type="checkbox" name="every_c" id="7n11"value="경련성질환">경련성 질환</label>
-									<label><input type="checkbox" name="every_c" id="7n12"value="자가면역질환">자가면역질환(류마티스 등)</label>
-									<label><input type="checkbox" name="every_c" id="7n13"value="장기이식">장기이식(신장, 간장, 췌장, 심장, 폐, 골수, 안구 등)</label>
-									<label><input type="checkbox" name="every_c" id="7n14"value="기타">기타</label>
+									<input class="form-check-input" type="radio" name="every" id="7x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n1"value="암">암</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n2"value="심장질환">심장질환</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n3"value="신장질환">신장질환</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n4"value="간질환">간질환</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n5"value="당뇨">당뇨병</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n6"value="혈액질환">혈액질환(혈우병, 적혈구증다증 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n7"value="호흡기질환">호흡기질환</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n8"value="피부질환">피부질환(건선 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n9"value="알코올 또는 마약 중독">알코올 또는 마약 중독</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n10"value="정신질환">정신질환</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n11"value="경련성질환">경련성 질환</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n12"value="자가면역질환">자가면역질환(류마티스 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n13"value="장기이식">장기이식(신장, 간장, 췌장, 심장, 폐, 골수, 안구 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="every_c" class="every_c" id="7n14"value="기타">기타</label>
 								</div>
 							</div>
 						</fieldset>
@@ -281,8 +394,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="drug" id="8o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -291,13 +404,33 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="drug_c" id="8n1"value="건선치료제(에트레티네이트, 아시트레틴)">건선치료제(에트레티네이트, 아시트레틴)</label>
-									<label><input type="checkbox" name="drug_c" id="8n2"value="소에서 유래한 인슐린">소에서 유래한 인슐린</label>
-									<label><input type="checkbox" name="drug_c" id="8n3"value="전립선치료제(두타스테라이드, 피나스테라이드)">전립선치료제(두타스테라이드, 피나스테라이드)</label>
-									<label><input type="checkbox" name="drug_c" id="8n4"value="탈모증 치료제(피나스테라이드)">탈모증 치료제(피나스테라이드)</label>
-									<label><input type="checkbox" name="drug_c" id="8n5"value="뇌하수체 유래 성장 호르몬">뇌하수체 유래 성장 호르몬</label>
-									<label><input type="checkbox" name="drug_c" id="8n6"value="여드름치료제(이소트렌티노인)">여드름치료제(이소트렌티노인)</label>
-									<label><input type="checkbox" name="drug_c" id="8n7"value="기타">기타</label>
+									<input class="form-check-input" type="radio" name="drug" id="8x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n1"value="건선치료제(에트레티네이트, 아시트레틴)">건선치료제(에트레티네이트, 아시트레틴)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n2"value="소에서 유래한 인슐린">소에서 유래한 인슐린</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n3"value="전립선치료제(두타스테라이드, 피나스테라이드)">전립선치료제(두타스테라이드, 피나스테라이드)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n4"value="탈모증 치료제(피나스테라이드)">탈모증 치료제(피나스테라이드)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n5"value="뇌하수체 유래 성장 호르몬">뇌하수체 유래 성장 호르몬</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n6"value="여드름치료제(이소트렌티노인)">여드름치료제(이소트렌티노인)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="drug_c" class="drug_c" id="8n7"value="기타">기타</label>
 								</div>
 							</div>
 						</fieldset>
@@ -312,8 +445,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="infectious" id="9o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -322,16 +455,42 @@
 									</label>
 								</div>
 								<div class="form-check m-3">
-									<label><input type="checkbox" name="infectious_c" id="9n1"value="간염">간염(B형, C형 등)</label>
-									<label><input type="checkbox" name="infectious_c" id="9n2"value="에이즈">에이즈</label>
-									<label><input type="checkbox" name="infectious_c" id="9n3"value="말라리아">말라리아</label>
-									<label><input type="checkbox" name="infectious_c" id="9n4"value="성병">성병(임질, 매독 등)</label>
-									<label><input type="checkbox" name="infectious_c" id="9n5"value="한센병">한센병</label>
-									<label><input type="checkbox" name="infectious_c" id="9n6"value="바베시아증">바베시아증</label>
-									<label><input type="checkbox" name="infectious_c" id="9n7"value="샤가스병">샤가스병</label>
-									<label><input type="checkbox" name="infectious_c" id="9n8"value="변종 크로이츠펠트-야콥병(vCJD)">변종 크로이츠펠트-야콥병(vCJD)</label>
-									<label><input type="checkbox" name="infectious_c" id="9n9"value="브루셀라증">브루셀라증</label>
-									<label><input type="checkbox" name="infectious_c" id="9n10"value="기타">기타</label>
+									<input class="form-check-input" type="radio" name="infectious" id="9x" value="해당있음">
+									<label class="form-check-label" for="optionsRadios2">
+										<font style="vertical-align: inherit;">
+											<font style="vertical-align: inherit;">아래 항목 중 선택해 주세요</font>
+										</font>
+									</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n1"value="간염">간염(B형, C형 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n2"value="에이즈">에이즈</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n3"value="말라리아">말라리아</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n4"value="성병">성병(임질, 매독 등)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n5"value="한센병">한센병</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n6"value="바베시아증">바베시아증</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n7"value="샤가스병">샤가스병</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n8"value="변종 크로이츠펠트-야콥병(vCJD)">변종 크로이츠펠트-야콥병(vCJD)</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n9"value="브루셀라증">브루셀라증</label>
+								</div>
+								<div class="form-check m-3">
+									<label><input type="checkbox" name="infectious_c" class="infectious_c" id="9n10"value="기타">기타</label>
 								</div>
 							</div>
 						</fieldset>
@@ -346,8 +505,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="malaria" id="10o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -392,8 +551,8 @@
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
+							<div class="col text-start">
+								<div class="form-check col-sm-3 m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="vcjd" id="11o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
