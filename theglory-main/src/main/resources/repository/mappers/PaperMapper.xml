@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.teamproject.theglory.mapper.PaperMapper" >
+	
+	<insert id="addPaper" parameterType="Paper">
+		INSERT INTO paper 		
+		VALUES(#{today}, #{today_t}, #{three},#{three_c}, #{three_t}, #{week}, #{week_c}, #{week_t}, #{month},
+					 #{month_c}, #{month_t}, #{months},#{months_c}, #{months_t}, #{year}, #{year_c}, #{year_t}, #{every},
+					 #{every_c}, #{every_t}, #{drug},#{drug_c}, #{drug_t}, #{infectious}, #{infectious_t}, 
+					 #{malaria}, #{malaria_t}, #{vcjd}, #{vcjd_t}, SYSDATE())
+	</insert>
+	
+			
+</mapper>	
+
+
+

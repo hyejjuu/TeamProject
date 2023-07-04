@@ -4,13 +4,12 @@ import java.sql.Timestamp;
 
 public class Member {	
 	
-	private String name, id, pass, email, phone, birth, bloodtype, gender;
+	private String name, id, pass, email, phone, birth, bloodtype, gender, address;
 	private boolean  emailGet;
-	private Timestamp regDate;		
-	private int verify;
+	private Timestamp regDate;
 	
 	public Member() { }
-
+	
 	public String getName() {
 		return name;
 	}
@@ -75,6 +74,14 @@ public class Member {
 		this.gender = gender;
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public boolean isEmailGet() {
 		return emailGet;
 	}
@@ -91,11 +98,4 @@ public class Member {
 		this.regDate = regDate;
 	}	
 	
-	public int getVerify() {
-		return verify;
-	}
-	
-	public void setVerify(int verify) {
-		this.verify = verify;
-	}
 }

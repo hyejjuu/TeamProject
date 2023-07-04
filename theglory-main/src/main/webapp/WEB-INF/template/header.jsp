@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
   <div class="row">
     <div class="col-12">
   
@@ -23,6 +24,7 @@
                          <c:if test="${not sessionScope.isLogin}">
                        		    <a href="main"><button type="button" class="btn btn-outline-primary me-2">메인 페이지로</button></a>
                           		<a href="login"><button type="button" class="btn btn-primary">로그인</button></a>
+                          		<a href="joinForm"><button type="button" class="btn btn-primary">회원가입</button></a>
                         </c:if>  
                          <c:if test="${sessionScope.isLogin and not sessionScope.member.id != 'admin'}">
                          	   <a href="logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
@@ -55,8 +57,10 @@
 					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Menu</a></li>
 					<li class="nav-item"><a class="nav-link" href="notificationList">공지사항 </a></li>
 					<li class="nav-item"><a class="nav-link" href="searchMap">장소찾기 </a></li>
-					<li class="nav-item"><a class="nav-link">예약 </a></li>
-					<li class="nav-item"><a class="nav-link">전자문진 </a></li>
+
+					<li class="nav-item"><a class="nav-link" href="resvBldHousStep1">예약 </a></li>
+					<li class="nav-item"><a class="nav-link" href="paperForm">전자문진 </a></li>
+
 					<li class="nav-item"><a class="nav-link" href="matchingBoardList">매칭게시판 </a></li>
 					<li class="nav-item"><a class="nav-link">굿즈 </a></li>
 					<li class="nav-item"><a class="nav-link">뉴스/기사 </a></li>
@@ -66,3 +70,6 @@
 	</nav>
     </div>
    </div>
+   
+   </div>
+  </main>

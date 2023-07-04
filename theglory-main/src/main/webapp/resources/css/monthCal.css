@@ -1,0 +1,34 @@
+      td {
+            width: 150px;
+            height: 50px;
+        }
+
+        .Calendar { 
+            text-align: center;
+            margin: 0 auto; 
+        }
+
+        .Calendar>thead>tr:first-child>td { font-weight: bold; }
+
+        .Calendar>thead>tr:last-child>td {
+            background-color: gray;
+            color: white;
+        }        
+
+        .pastDay{ background-color: lightgray; }
+
+        .today{            
+            background-color: #a0c0ff;       
+            cursor: pointer;
+        }
+
+        .futureDay{            
+            background-color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .futureDay.choiceDay, .today.choiceDay{            
+            background-color: #FFB6C1;            
+            color: #fff;
+            cursor: pointer;
+        }

@@ -49,6 +49,7 @@ local.properties
 /**/pom.properties
 /**/MANIFEST*
 
+
 # Code Recommenders
 .recommenders/
 

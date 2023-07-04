@@ -21,8 +21,7 @@ public class MemberServiceImpl implements MemberService {
         System.out.println("getPass : "+member.getPass());
         System.out.println(id);
         System.out.println(pass);
-        System.out.println("verify : " + member.getVerify() + " (0은 일반회원이고 , 1은 관리자임돠)");
-        
+                
         int result = -1;
         
         if(member == null) {
