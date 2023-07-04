@@ -258,7 +258,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col-3">${l.locationAddress}</div>
                 <div class="col-3">${l.tel}</div>
                   <div class="col-3">
-                     <div class="row"><a href="rvs?locationNo=${l.locationNo}"><button class="btn btn-danger" type="button">예약</button></a></div>
+                     <div class="row"><a href="javascript:void(0);" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
                   </div>
             </div>
         </c:forEach>
@@ -273,7 +273,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col">
                     <div class="row">
                     	<div class="col">
-                     		<a href="resvBldHouseStep3?locationNo=${a.locationNo}"><button class="btn btn-danger" type="button">예약</button></a>
+                     		 <a href="javascript:void(0);" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
                     	</div>
                     </div>
                 </div>
@@ -388,3 +388,12 @@ for (var i = 0; i < positions.length; i ++) {
   </c:when>
 </c:choose>
 
+<c:if test="${not sessionScope.isLogin}">
+    <script>
+        function checkLogin(locationNo) {
+        	event.preventDefault();
+            alert('로그인 후에 예약할 수 있습니다.');
+            return false; 
+        }
+    </script>
+</c:if>
