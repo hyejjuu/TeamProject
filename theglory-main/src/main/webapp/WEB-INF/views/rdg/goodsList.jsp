@@ -3,11 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
     
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>goodsList</title>
 <style>
 
 .mt-n1 {
@@ -15,11 +10,10 @@
 }
 
 </style>
-</head>
-<body>
+
 
 	</br></br>
-	
+	<div class="container">
 	<!-- 슬라이드 영역 -->
 	<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
@@ -107,5 +101,4 @@
 			</div>	
 		</c:forEach>
 	</div>	
-</body>
-</html>
+</div>	
