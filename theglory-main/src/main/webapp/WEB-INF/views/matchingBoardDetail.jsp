@@ -5,6 +5,7 @@
 <script src="resources/js/matchReply.js"></script>
 <script src="resources/js/matchFormcheck.js"></script>
 
+<div class="container">
 <div class="row my-5" id="global-content">
 	<div class="col">
 		<form name="checkForm" id="checkForm">
@@ -164,4 +165,5 @@
 		</div> <!-- end replyForm -->
 		
 	</div>
+</div>
 </div>
