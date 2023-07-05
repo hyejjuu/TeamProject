@@ -1,6 +1,8 @@
 package com.teamproject.theglory.kgh.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +24,65 @@ public class LocationDaoImpl implements LocationDao {
 	}
 	
 	@Override
-	public List<LocationMap> Map() {		
-		return sqlSession.selectList(NAME_SPACE+".locationMap");
+	public List<LocationMap> Map(int startRow, int num , String type) {		
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("type",  type);
+		params.put("startRow", startRow);
+		params.put("num", num);
+	
+		return sqlSession.selectList(NAME_SPACE+".locationMap",params);
 	}
 	
 	@Override
-	public List<LocationMap> Map2(String locationAddress) {		
-		return sqlSession.selectList(NAME_SPACE+".searchAction" , locationAddress);
+	public List<LocationMap> addressSearch(int startRow, int num, String type ,String locationAddress) {		
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("type",  type);
+		params.put("startRow", startRow);
+		params.put("num", num);
+		params.put("locationAddress", locationAddress);
+		
+		return sqlSession.selectList(NAME_SPACE+".addressAction" , params);
 	}
+
+	@Override
+	public List<LocationMap> areaSearch(int startRow, int num, String type , Integer areaNo) {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("type",  type);
+		params.put("startRow", startRow);
+		params.put("num", num);
+		params.put("areaNo", areaNo);
+		
+		return sqlSession.selectList(NAME_SPACE+".areaAction" , params);
+	}
+	
+	@Override
+	public int getLocationCount(String type) {
+		
+	    Map<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("type",  type);
+
+		return sqlSession.selectOne(NAME_SPACE + ".getLocationCount" , params);
+
+	}
+	
+	@Override
+	public int getAreaCount(Integer areaNo) {
+
+		return sqlSession.selectOne(NAME_SPACE + ".getAreaCount" , areaNo);
+
+	}
+
+	@Override
+	public int getAddressCount(String locationAddress) {
+		
+		return sqlSession.selectOne(NAME_SPACE + ".getAddressCount" , locationAddress);
+	}
+
 
 }

@@ -1,6 +1,7 @@
 package com.teamproject.theglory.kgh.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,27 +29,40 @@ public class LocationController {
 		this.serviceLM = serviceLM;	
 	}
 	
-	@RequestMapping(value="searchMap" , method=RequestMethod.GET)
-	public String locationMap(Model model) {
+	@RequestMapping(value="searchMap")
+	public String locationMap(Model model , 	@RequestParam(value="pageNum", required=false, 
+			defaultValue="1") int pageNum  , String type) {
 		
-		List<LocationMap> location = serviceLM.Map();
-		
-		model.addAttribute("location", location);
-		
-		System.out.print(location);
+		Map<String, Object> modelMap = serviceLM.Map(pageNum , type);
+
+		model.addAllAttributes(modelMap);
 		
 		return "kgh/searchMap";
 	}
 	
 	
-	@RequestMapping(value="searchAction" , method=RequestMethod.POST) 
-	public String locationMap2(Model model , String locationAddress) {
+	@RequestMapping(value="SearchAddress" , method=RequestMethod.GET) 
+	public String addressAction(Model model , String type,
+			@RequestParam(value="pageNum", required=false, 
+			defaultValue="1") int pageNum, String locationAddress) {
 		
-		List<LocationMap> location = serviceLM.Map2(locationAddress);
+		Map<String, Object> modelMap = serviceLM.addressSearch(pageNum,type,locationAddress);
+		    
+		model.addAllAttributes(modelMap);
 		
-		model.addAttribute("location", location);
+		return "kgh/searchMap";
+	}
+	
+	
+	@RequestMapping(value="SearchArea" , method=RequestMethod.GET) 
+	public String areaAction(Model model  ,String type,
+			@RequestParam(value="pageNum", required=false, 
+			defaultValue="1") int pageNum , @RequestParam(value="areaNo", required=false, 
+			defaultValue="1") Integer areaNo) {
+			
+		Map<String, Object> modelMap = serviceLM.areaSearch(pageNum,type ,areaNo);
 		
-		System.out.print("search : " + location);
+		model.addAllAttributes(modelMap);
 		
 		return "kgh/searchMap";
 	}
