@@ -6,8 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.teamproject.theglory.kgh.domain.Member;
 
-
- // 이 클래스가 데이터 액세스(데이터 저장소) 계층의 컴포넌트임을 선언한다. 
+ 
 @Repository
 public class MemberHhj00DaoImpl implements MemberHhj00Dao {
 		
@@ -21,12 +20,17 @@ public class MemberHhj00DaoImpl implements MemberHhj00Dao {
 		this.sqlSession = sqlSession;
 	}
 	
-	
-	// 회원 정보를 회원 테이블에 저장하는 메서드
 	@Override
 	public void addMember(Member member) {
 		sqlSession.insert(NAME_SPACE + ".addMember", member);
 	}
 	
+	public String memberPassCheck(String id) {
+		return sqlSession.selectOne(NAME_SPACE + ".memberPassCheck", id);
+	}
+	
+	public void updateMember(Member member) {
+		sqlSession.update(NAME_SPACE + ".updateMember", member);
+	}
 
 }

@@ -28,7 +28,7 @@
                         </c:if>  
                          <c:if test="${sessionScope.isLogin and not sessionScope.member.id != 'admin'}">
                          	   <a href="logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
-                               <a href="#"><button type="button" class="btn btn-danger"> 마이페이지</button></a>
+                               <a href="memberUpdateForm"><button type="button" class="btn btn-danger"> 마이페이지</button></a>
                          </c:if>
                      </div>
 			</div>

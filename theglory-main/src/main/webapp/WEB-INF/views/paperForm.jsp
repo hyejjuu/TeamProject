@@ -29,6 +29,12 @@
 									</font>
 								</p>  
 							</blockquote>
+							<div class="row mt-5 mb-3">
+								<div class="col-8 offset-2">
+									<label for="userId" class="form-label"> 아이디 : </label>
+									<input type="text" class="form-control" name="id" id="userId" value="${sessionScope.member.id}" readonly>
+								</div>
+							</div>
 							<figcaption class="blockquote-footer text-danger">
 								<font style="vertical-align: inherit;">
 									<cite title="안내문">

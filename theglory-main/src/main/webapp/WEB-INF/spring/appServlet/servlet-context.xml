@@ -35,7 +35,7 @@
 	<view-controller path = "/matchingBoard" view-name = "matchingBoard" />
 	<view-controller path="/matchingWriteForm" view-name="matchingWriteForm" />
 	<view-controller path="/joinForm" view-name="member/memberJoinForm" />
-	<view-controller path="/paperForm" view-name="paperForm" />
+	<view-controller path="/paperForm" view-name="paperForm"/>
 	
 	<redirect-view-controller path="/matchingWrite" redirect-url="/matchingWriteForm"/>
 	
@@ -43,6 +43,8 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/add*" />
+			<mapping path="/memberUpdate*" />
+			<mapping path="/paper*" />
 			<beans:ref bean="loginCheckInterceptor" />			
 		</interceptor>
 	</interceptors>
