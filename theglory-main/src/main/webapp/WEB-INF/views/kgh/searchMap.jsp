@@ -392,8 +392,8 @@ for (var i = 0; i < positions.length; i ++) {
     <script>
         function checkLogin(locationNo) {
         	event.preventDefault();
-            alert('로그인 후에 예약할 수 있습니다.');
-            return false; 
+            alert('로그인 후에 예약할 수 있습니다.'); //마지막 수정이 커밋이 안된듯
+            return false;            
         }
     </script>
 </c:if>
