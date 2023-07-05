@@ -1,43 +1,56 @@
 package com.teamproject.theglory.kgh.domain;
 
 public class LocationMap {
-  private String locationName;
-  private String locationAddress;
-  private String tel;
-  private String latitude;
-  private String longitude;
-  
-  
-public String getLocationName() {
-	return locationName;
-}
-public void setLocationName(String locationName) {
-	this.locationName = locationName;
-}
-public String getLocationAddress() {
-	return locationAddress;
-}
-public void setLocationAddress(String locationAddress) {
-	this.locationAddress = locationAddress;
-}
-public String getTel() {
-	return tel;
-}
-public void setTel(String tel) {
-	this.tel = tel;
-}
-public String getLatitude() {
-	return latitude;
-}
-public void setLatitude(String latitude) {
-	this.latitude = latitude;
-}
-public String getLongitude() {
-	return longitude;
-}
-public void setLongitude(String longitude) {
-	this.longitude = longitude;
-}
-  
-   
+	
+	private String locationName;
+    private String locationAddress;
+    private String tel;
+    private float latitude;
+    private float longitude;
+    private Integer areaNo;
+    private int locationNo;
+	
+    public String getLocationName() {
+		return locationName;
+	}
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+	public String getLocationAddress() {
+		return locationAddress;
+	}
+	public void setLocationAddress(String locationAddress) {
+		this.locationAddress = locationAddress;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public float getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(float latitude) {
+		this.latitude = latitude;
+	}
+	public float getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(float longitude) {
+		this.longitude = longitude;
+	}
+	public Integer getAreaNo() {
+		return areaNo;
+	}
+	public void setAreaNo(Integer areaNo) {
+		this.areaNo = areaNo;
+	}
+	public int getLocationNo() {
+		return locationNo;
+	}
+	public void setLocationNo(int locationNo) {
+		this.locationNo = locationNo;
+	}
+	
 }
