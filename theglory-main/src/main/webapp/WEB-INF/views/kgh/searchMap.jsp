@@ -10,7 +10,7 @@
 
     <div class="container pt-5"> 
     
-<form class="addressForm form-inline" name="addressForm" method="get" action="addressAction">
+<form class="addressForm form-inline" name="addressForm" method="get" action="locationAddress">
   <input type="hidden" name="type" value="address"/>
   <div class="row justify-content-center">
     <div class="col-2 border border-lightgray bg-light">      
