@@ -41,7 +41,7 @@ public class LocationController {
 	}
 	
 	
-	@RequestMapping(value="addressAction" , method=RequestMethod.GET) 
+	@RequestMapping(value="SearchAddress" , method=RequestMethod.GET) 
 	public String addressAction(Model model , String type,
 			@RequestParam(value="pageNum", required=false, 
 			defaultValue="1") int pageNum, String locationAddress) {
@@ -54,7 +54,7 @@ public class LocationController {
 	}
 	
 	
-	@RequestMapping(value="areaAction" , method=RequestMethod.GET) 
+	@RequestMapping(value="SearchArea" , method=RequestMethod.GET) 
 	public String areaAction(Model model  ,String type,
 			@RequestParam(value="pageNum", required=false, 
 			defaultValue="1") int pageNum , @RequestParam(value="areaNo", required=false, 
