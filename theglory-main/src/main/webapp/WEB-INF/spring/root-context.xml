@@ -29,7 +29,9 @@
 				<value>com.teamproject.theglory.hhj00.domain.Paper</value>
 
 				<value>com.teamproject.theglory.rdg.domain.Goods</value>
-                
+				<!-- admin -->
+                <value>com.teamproject.theglory.kgh.domain.AgeData</value>
+                <value>com.teamproject.theglory.kgh.domain.AreaData</value>
 			</list>
 		</property>
 

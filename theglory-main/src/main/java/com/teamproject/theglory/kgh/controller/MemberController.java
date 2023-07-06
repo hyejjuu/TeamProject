@@ -62,6 +62,14 @@ public class MemberController {
 		}
 	
 		 Member member = memberService.getMember(id);
+		 
+	 		 
+		 session.setAttribute("isLogin", true);
+		 
+		 if (member.getId().equals("admin")) {
+			    model.addAttribute("member", member);
+		        return "redirect:/admin";		        
+		    } 	
 		 		 		 
 		 session.setAttribute("isLogin", true);
 		 model.addAttribute("member", member);
