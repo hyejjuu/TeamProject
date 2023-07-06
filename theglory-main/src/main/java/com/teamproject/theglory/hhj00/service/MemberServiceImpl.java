@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 		this.memberHhj00Dao = memberHhj00Dao;
 	}	
 	
-	// 회원 가입시 아이디 중복을 체크하는 메서드
+	// 회원 가입 아이디 중복을 체크
 	@Override
 	public boolean overlapIdCheck(String id) {
 		Member member = memberDao.getMember(id);
@@ -46,8 +46,6 @@ public class MemberServiceImpl implements MemberService {
 		return true;
 	}
 	
-	
-	// 회원 정보를 DAO를 이용해 회원 테이블에 저장하는 메서드
 	@Override
 	public void addMember(Member member) {
 		
@@ -57,6 +55,24 @@ public class MemberServiceImpl implements MemberService {
 		memberHhj00Dao.addMember(member);
 	}
 	
-
+	public boolean memberPassCheck(String id, String pass) {
+		
+		String dbPass = memberHhj00Dao.memberPassCheck(id);
+		boolean result = false;
+		
+		if(passwordEncoder.matches(pass, dbPass)) {
+			result = true;
+		}
+			return result;
+	}
+		
+		public void updateMember(Member member) {
+			
+			member.setPass(passwordEncoder.encode(member.getPass()));
+			
+			System.out.println(member.getPass());
+			
+			memberHhj00Dao.updateMember(member);
+		}
 	
 }

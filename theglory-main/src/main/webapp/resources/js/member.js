@@ -147,6 +147,18 @@ $(function() {
 		
 	});
 	
+	// 회원정보 수정 폼 수정하기 버튼
+	$("#memberUpdateForm").on("submit", function() {
+		
+		if(! $("#btnPassCheck").prop("disabled")) {
+			alert("기존 비밀번호를 확인해야 비밀번호를 수정할 수 있습니다.\n"
+				+ "기존 비밀번호를 입력하고 비밀번호 확인 버튼을 클릭해 주세요");
+			return false;
+		}
+		 
+		return joinFormCheck(false);
+	});
+	
 	var smsResult = null;
 	
 	//휴대폰 번호 인증	
@@ -216,6 +228,10 @@ function joinFormCheck(isJoinForm) {
 	var id = $("#userId").val();
 	var pass1 = $("#pass1").val();
 	var pass2 = $("#pass2").val();
+	var birth = $("#birth").val();
+	var gender = $("#gender").val();
+	var bloodtype = $("#bloodtype").val();
+	var address = $("#address").val();
 	var emailId = $("#emailId").val();
 	var emailDomain = $("#emailDomain").val();
 	var phone = $("#phone").val();
@@ -244,6 +260,22 @@ function joinFormCheck(isJoinForm) {
 	}
 	if(pass1 != pass2) {
 		alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+		return false;
+	}
+	if(birth.length == 0) {		
+		alert("생일이 입력되지 않았습니다.\n생일을 입력해주세요");
+		return false;
+	}	
+	if(gender.length == 0) {		
+		alert("성별이 입력되지 않았습니다.\n성별을 입력해주세요");
+		return false;
+	}	
+	if(bloodtype.length == 0) {		
+		alert("혈액형이 입력되지 않았습니다.\n혈액형을 입력해주세요");
+		return false;
+	}	
+	if(address.length == 0) {		
+		alert("주소가 입력되지 않았습니다.\n주소를 입력해주세요");
 		return false;
 	}	
 	if(emailId.length == 0) {		
