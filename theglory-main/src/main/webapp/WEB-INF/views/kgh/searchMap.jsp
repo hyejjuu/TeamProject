@@ -10,7 +10,7 @@
 
     <div class="container pt-5"> 
     
-<form class="addressForm form-inline" name="addressForm" method="get" action="locationAddress">
+<form class="addressForm form-inline" name="addressForm" method="get" action="SearchAddress">
   <input type="hidden" name="type" value="address"/>
   <div class="row justify-content-center">
     <div class="col-2 border border-lightgray bg-light">      
@@ -42,7 +42,7 @@
   </div>
 </form>
 
-<form class="addressForm form-inline" name="addressForm" method="get" action="areaAction"> 
+<form class="addressForm form-inline" name="addressForm" method="get" action="SearchArea"> 
   <input type="hidden" name="type" value="area"/>
   <div class="row justify-content-center">
     <div class="col-2 border border-lightgray bg-light">
@@ -390,10 +390,11 @@ for (var i = 0; i < positions.length; i ++) {
 
 <c:if test="${not sessionScope.isLogin}">
     <script>
-        function checkLogin(locationNo) {
-        	event.preventDefault();
-            alert('로그인 후에 예약할 수 있습니다.'); //마지막 수정이 커밋이 안된듯
-            return false;            
-        }
+    function checkLogin(locationNo) {
+        event.preventDefault();
+        alert('로그인 후에 예약할 수 있습니다.');
+        window.location.href = 'login';  // 로그인 페이지 URL로 이동
+        return false;
+    }
     </script>
 </c:if>
