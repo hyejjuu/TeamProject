@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <div class="row my-5" id="global-content">
 	<div class="col">
 		<div class="row text-center">
@@ -31,6 +32,7 @@
 					<div class="col-12">
 						<div class="accordion accordion-flush" id="accordionFlushExample">
   							<div class="accordion-item">
+  								<form action="matchingBoardList" id="filterForm">
     							<h2 class="accordion-header" id="flush-headingOne">
       								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         								카테고리
@@ -42,74 +44,74 @@
 		     							<div class="accordion accordion-flush" id="accordionFlushExample">
   											<div class="accordion-item">
     											<h2 class="accordion-header" id="flush-headingOne">
-      												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      												<button class="accordion-button collapsed local" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         												지역
       												</button>
     											</h2>
 		    									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 		     										<div class="accordion-body">
 		     											<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="서울" value="서울">
+  															<input class="form-check-input" type="checkbox" id="서울" value="서울" name="local">
   																<label class="form-check-label" for="서울">서울</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="경기" value="경기">
+  															<input class="form-check-input" type="checkbox" id="경기" value="경기"  name="local">
   																<label class="form-check-label" for="경기">경기</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="인천" value="인천">
+  															<input class="form-check-input" type="checkbox" id="인천" value="인천"  name="local">
   																<label class="form-check-label" for="인천">인천</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="강원" value="강원">
+  															<input class="form-check-input" type="checkbox" id="강원" value="강원" name="local" >
   																<label class="form-check-label" for="강원">강원</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="대전" value="대전">
+  															<input class="form-check-input" type="checkbox" id="대전" value="대전"  name="local" >
   																<label class="form-check-label" for="대전">대전</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="충남" value="충남">
+  															<input class="form-check-input" type="checkbox" id="충남" value="충남"  name="local">
   																<label class="form-check-label" for="충남">충남</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="충북" value="충북">
+  															<input class="form-check-input" type="checkbox" id="충북" value="충북"  name="local">
   																<label class="form-check-label" for="충북">충북</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="경북" value="경북">
+  															<input class="form-check-input" type="checkbox" id="경북" value="경북" name="local" >
   																<label class="form-check-label" for="경북">경북</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="경남" value="경남">
+  															<input class="form-check-input" type="checkbox" id="경남" value="경남"  name="local" >
   																<label class="form-check-label" for="경남">경남</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="전남" value="전남">
+  															<input class="form-check-input" type="checkbox" id="전남" value="전남"  name="local">
   																<label class="form-check-label" for="전남">전남</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="전북" value="전북">
+  															<input class="form-check-input" type="checkbox" id="전북" value="전북"  name="local">
   																<label class="form-check-label" for="전북">전북</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="부산" value="부산">
+  															<input class="form-check-input" type="checkbox" id="부산" value="부산"  name="local" >
   																<label class="form-check-label" for="부산">부산</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="울산" value="울산">
+  															<input class="form-check-input" type="checkbox" id="울산" value="울산"  name="local" >
   																<label class="form-check-label" for="울산">울산</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="대구" value="대구">
+  															<input class="form-check-input" type="checkbox" id="대구" value="대구" name="local" >
   																<label class="form-check-label" for="대구">대구</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="광주" value="광주">
+  															<input class="form-check-input" type="checkbox" id="광주" value="광주" name="local" >
   																<label class="form-check-label" for="광주">광주</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="제주" value="제주">
+  															<input class="form-check-input" type="checkbox" id="제주" value="제주"  name="local" >
   																<label class="form-check-label" for="제주">제주</label>
 														</div>
 		     										</div>
@@ -120,30 +122,30 @@
   										<div class="accordion accordion-flush" id="accordionFlushExample">
   											<div class="accordion-item">
     											<h2 class="accordion-header" id="flush-headingOne">
-      												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      												<button class="accordion-button collapsed bloodtype" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         												혈액형
       												</button>
     											</h2>
 		    									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 		     										<div class="accordion-body">
 		     											<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="A형" value="A형">
+  															<input class="form-check-input" type="checkbox" id="A형" value="A형" name="A형">
   																<label class="form-check-label" for="A형">A형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="B형" value="B형">
+  															<input class="form-check-input" type="checkbox" id="B형" value="B형"  name="B형">
   																<label class="form-check-label" for="B형">B형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="AB형" value="AB형">
+  															<input class="form-check-input" type="checkbox" id="AB형" value="AB형"  name="AB형">
   																<label class="form-check-label" for="AB형">AB형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="O형" value="O형">
+  															<input class="form-check-input" type="checkbox" id="O형" value="O형"  name="O형">
   																<label class="form-check-label" for="O형">O형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="기타" value="기타">
+  															<input class="form-check-input" type="checkbox" id="기타" value="기타"  name="기타">
   																<label class="form-check-label" for="기타">기타</label>
 														</div>
 		     										</div>
@@ -154,41 +156,47 @@
   										<div class="accordion accordion-flush" id="accordionFlushExample">
   											<div class="accordion-item">
     											<h2 class="accordion-header" id="flush-headingOne">
-      												<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+      												<button class="accordion-button collapsed bloodDonation" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
         												헌혈 종류
       												</button>
     											</h2>
 		    									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 		     										<div class="accordion-body">
 		     											<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="전혈" value="전혈">
+  															<input class="form-check-input" type="checkbox" id="전혈" value="전혈"  name="전혈">
   																<label class="form-check-label" for="전혈">전혈</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="혈장" value="혈장">
+  															<input class="form-check-input" type="checkbox" id="혈장" value="혈장"  name="혈장">
   																<label class="form-check-label" for="혈장">혈장</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="혈소판" value="혈소판">
+  															<input class="form-check-input" type="checkbox" id="혈소판" value="혈소판"  name="혈소판">
   																<label class="form-check-label" for="혈소판">혈소판</label>
 														</div>
 		     										</div>
 		    									</div>
   											</div>
   										</div>
+  										<div class="col-2 offset-5">
+  											<input type="submit" value="필터 적용" class="btn btn-primary" id="filterFormBtn"/>
+  										</div>
 		     						</div>
 		    					</div>
+		    					</form>
   							</div>
   						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	<!-- 검색 요청일 경우 (일반 게시글 리스트로 이동할 수 있는 버튼 생성) -->
-	<c:if test="${ searchOption }">
+	<!-- 검색 요청이거나 필터 요청일 때 (일반 게시글 리스트로 이동할 수 있는 버튼 생성) -->
+	<c:if test="${ searchOption or isFilter }">
 		<div class="row my-3">
 			<div class="col text-center">
+				<c:if test="${ searchOption }">
 				"${ keyword }" 검색 결과
+				</c:if>
 			</div>
 		</div>
 		<div class="row my-3">
@@ -200,8 +208,8 @@
 			</div>
 		</div>
 	</c:if>
-	<!-- 검색 요청이 아닐 경우 -->
-	<c:if test="${ not searchOption }">
+	<!-- 검색 요청과 필터 요청이 아닐 경우 -->
+	<c:if test="${ not searchOption and not isFilter }">
 	<div class="row">
 		<div class="col text-end mt-3">
 			<a href="matchingWriteForm" class="btn btn-outline-success">글쓰기</a>

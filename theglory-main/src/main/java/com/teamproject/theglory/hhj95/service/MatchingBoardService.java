@@ -24,7 +24,7 @@ public interface MatchingBoardService {
 		List<MatchingReply> replyList(int no);
 		
 		// 현재 페이지에 해당하는 게시 글 반환
-		public abstract Map<String, Object> matchingBoardList(int pageNum, String type, String keyword);
+		public abstract Map<String, Object> matchingBoardList(int pageNum, String type, String keyword, String[] local, String[] bloodtype, String[] blood_donation);
 		
 		// no에 해당하는 게시 글 반환
 		public abstract MatchingBoard getMatchingBoard(int no, boolean isCount);

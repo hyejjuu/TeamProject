@@ -54,13 +54,16 @@ public class MatchingBoardDaoImpl implements MatchingBoardDao {
 	}
 
 	@Override
-	public List<MatchingBoard> matchingBoardList(int startRow, int num, String type, String keyword) {
+	public List<MatchingBoard> matchingBoardList(int startRow, int num, String type, String keyword, String[] local, String[] bloodtype, String[] blood_donation) {
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("startRow", startRow);
 		params.put("num", num);
 		params.put("type", type);
 		params.put("keyword", keyword);
+		params.put("local", local);
+		params.put("bloodtype", bloodtype);
+		params.put("blood_donation", blood_donation);
 		
 		return sqlSession.selectList(NAME_SPACE + ".matchingBoardList", params);
 	}
