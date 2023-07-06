@@ -32,6 +32,8 @@
 				<!-- admin -->
                 <value>com.teamproject.theglory.kgh.domain.AgeData</value>
                 <value>com.teamproject.theglory.kgh.domain.AreaData</value>
+                <value>com.teamproject.theglory.kgh.domain.ReservationMG</value>
+                   <value>com.teamproject.theglory.kgh.domain.MnF</value>
 			</list>
 		</property>
 

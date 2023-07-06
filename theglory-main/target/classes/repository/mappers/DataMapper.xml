@@ -18,6 +18,21 @@
 		FROM agedata where datayear='2022'
 	</select>
 	
+<!-- 갈라 -->	
+    	
+	<select id="MnFObject" resultType="MnF" resultMap="MnFResultMap">
+	   SELECT 
+  			  COUNT(CASE WHEN gender = '남성' THEN 1 END) AS count_male,
+  			  COUNT(CASE WHEN gender = '여성' THEN 1 END) AS count_female
+		FROM 
+    		 member;	
+	</select>
+	
+    <resultMap type="MnF" id="MnFResultMap">   
+       <result property="male" column="count_male"/>     
+       <result property="female" column="count_female"/>     
+    </resultMap>
+	
 <!-- 여기도 갈라 -->	
  <select id="areaObject" resultType="AreaData" resultMap="AreaResultMap">
 		SELECT
@@ -49,4 +64,5 @@
        <result property="datayear" column="data_year"/>     
     </resultMap>
 	
+
 </mapper>
