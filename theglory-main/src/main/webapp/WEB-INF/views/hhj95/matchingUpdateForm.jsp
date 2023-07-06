@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <script src="resources/js/matchFormcheck.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<div class="container">
 <div class="row my-5" id="global-content">
 	<div class="col">
 		<div class="row text-center">
@@ -86,4 +87,5 @@
 		 	</div>
 		</form>
 	</div>
+</div>
 </div>

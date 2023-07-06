@@ -28,6 +28,8 @@ public class MatchingBoardAjaxController {
 	@RequestMapping("/replyWrite.ajax")
 	@ResponseBody
 	public List<MatchingReply> addReply(MatchingReply reply) {
+		
+		boardService.addReply(reply);
 		return boardService.replyList(reply.getMatchNo());
 	}
 	

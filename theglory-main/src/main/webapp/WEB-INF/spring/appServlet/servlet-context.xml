@@ -31,10 +31,14 @@
 	
 	<context:component-scan base-package="com.teamproject.theglory" />
 	
+	<view-controller path="/" view-name="main"/>
 	<view-controller path="/login" view-name="login"/>
+
 	<view-controller path = "/matchingBoard" view-name = "matchingBoard" />
 	<view-controller path="/matchingWriteForm" view-name="matchingWriteForm" />
+
 	<view-controller path="/joinForm" view-name="member/memberJoinForm" />
+
 	<view-controller path="/paperForm" view-name="paperForm"/>
 	
 	<redirect-view-controller path="/matchingWrite" redirect-url="/matchingWriteForm"/>
@@ -50,5 +54,7 @@
 	</interceptors>
 	
 	<view-controller path="/" view-name="redirect:main" />
+  <view-controller path="/matchingWriteForm" view-name="hhj95/matchingWriteForm"/>
+
 	
 </beans:beans>

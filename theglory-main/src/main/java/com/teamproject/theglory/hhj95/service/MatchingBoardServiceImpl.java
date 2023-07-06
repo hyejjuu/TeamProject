@@ -66,7 +66,7 @@ public class MatchingBoardServiceImpl implements MatchingBoardService {
 		private static final int PAGE_GROUP = 10;
 	
 	@Override
-	public Map<String, Object> matchingBoardList(int pageNum, String type, String keyword) {
+	public Map<String, Object> matchingBoardList(int pageNum, String type, String keyword, String[] local, String[] bloodtype, String[] blood_donation) {
 		
 		// 요청 파라미터의 pageNum을 현재 페이지로 설정
 		int currentPage = pageNum;
@@ -81,7 +81,7 @@ public class MatchingBoardServiceImpl implements MatchingBoardService {
 		listCount = matchingBoardDao.getBoardCount(type, keyword);
 		
 		// 현재 페이지에 해당하는 게시 글 리스트를 DB에서 읽어옴
-		List<MatchingBoard> boardList = matchingBoardDao.matchingBoardList(startRow, PAGE_SIZE, type, keyword);
+		List<MatchingBoard> boardList = matchingBoardDao.matchingBoardList(startRow, PAGE_SIZE, type, keyword, local, bloodtype, blood_donation);
 		
 		// 페이지 그룹 이동 처리를 위해 전체 페이지를 계산
 		int pageCount = listCount / PAGE_SIZE + (listCount % PAGE_SIZE == 0 ? 0 : 1);
