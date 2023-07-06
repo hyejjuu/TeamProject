@@ -22,11 +22,9 @@ public class MemberServiceImpl implements MemberService {
         System.out.println(id);
         System.out.println(pass);
                 
-        int result = -1;
+        int result;
         
-        if(member == null) {
-        	return result;
-        }
+     
         
         if(pass.equals(member.getPass())) {
         	result = 1;
