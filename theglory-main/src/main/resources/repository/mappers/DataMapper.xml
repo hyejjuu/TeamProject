@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+<mapper namespace="com.teamproject.theglory.mapper.DataMapper">
+	
+	<select id="ageObject" resultType="AgeData">
+		SELECT
+			teens,
+			twenty,
+			thirty,
+			forty,
+			fifty,
+			oversixty,
+			total,
+			datayear
+		FROM agedata where datayear='2022'
+	</select>
+	
+<!-- 여기도 갈라 -->	
+ <select id="areaObject" resultType="AreaData" resultMap="AreaResultMap">
+		SELECT
+			seoul_center,
+			seoul_south,
+			seoul_east,
+			busan,
+			daegu,
+			incheon,
+			ulsan,
+			gyeonggi,
+			gangwon,
+			chungbuk,
+			sejong,
+			jeonbuk,
+			gyeongnam,
+			jeju,
+			gwangju,
+			total
+		FROM areadata where data_year='2022'
+</select>
+   
+
+	<resultMap type="AreaData" id="AreaResultMap">
+	   <id property="areadataNo" column="areadata_no"/>   
+       <result property="seoulCenter" column="seoul_center"/>     
+       <result property="seoulSouth" column="seoul_south"/> 
+       <result property="seoulEast" column="seoul_east"/>     
+       <result property="datayear" column="data_year"/>     
+    </resultMap>
+	
+</mapper>
