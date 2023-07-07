@@ -24,6 +24,9 @@
 		WHERE id=#{id}
 	</update>
 			
+	<select id="listMember" resultType="Member">
+	     select*from member
+	</select>			
 </mapper>	
 
 

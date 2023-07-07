@@ -10,6 +10,22 @@ public class Member {
 	
 	public Member() { }
 	
+	public Member(String name, String id, String pass, String email, String phone, String birth, String bloodtype,
+			String gender, String address, boolean emailGet, Timestamp regDate) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.pass = pass;
+		this.email = email;
+		this.phone = phone;
+		this.birth = birth;
+		this.bloodtype = bloodtype;
+		this.gender = gender;
+		this.address = address;
+		this.emailGet = emailGet;
+		this.regDate = regDate;
+	}
+
 	public String getName() {
 		return name;
 	}

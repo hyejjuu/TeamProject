@@ -1,5 +1,7 @@
 package com.teamproject.theglory.kgh.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -43,6 +45,11 @@ public class MemberServiceImpl implements MemberService {
         System.out.println(id);
 		return memberDao.getMember(id);
 		
+	}
+	
+	@Override
+	public List<Member> listMember() {
+		return memberDao.listMember();
 	}
 
 }
