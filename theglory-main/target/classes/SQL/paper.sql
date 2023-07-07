@@ -3,6 +3,7 @@ use theglory;
 
 DROP TABLE IF EXISTS paper;
 CREATE TABLE IF NOT EXISTS paper(
+	id varchar(20) PRIMARY KEY,
 	today VARCHAR(100),
     today_t VARCHAR(100),
     three VARCHAR(100),

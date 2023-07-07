@@ -23,7 +23,6 @@ import com.teamproject.theglory.kgh.domain.Member;
 
 @Controller("mController")
 @SessionAttributes("member")
-/* @RequestMapping("/member") */
 public class MemberController {
 	
 	private MemberService memberService;
@@ -65,5 +64,27 @@ public class MemberController {
 		return "forward:WEB-INF/views/member/overlapIdCheck.jsp";
 	}
 	
+	@RequestMapping("/memberUpdateForm")
+	public String updateForm(Model model, HttpSession session) {
+	
+		return "member/memberUpdateForm";
+	}
+	
+	@RequestMapping("/memberUpdateResult")
+	public String memberUpdateInfo(Model model, Member member, String pass1, String emailId, String emailDomain, 
+			String phone, String address,
+			@RequestParam(value="emailGet", required=false, defaultValue="false")boolean emailGet) {
+		
+		member.setPass(pass1);
+		member.setAddress(address);
+		member.setEmail(emailId + "@" + emailDomain);
+		member.setEmailGet(Boolean.valueOf(emailGet));
+		
+		System.out.println("memberUpdateResult : " + member.getId());
+		
+		model.addAttribute("member", member);
+		
+		return "redirect:main";
+	}
 	
 }

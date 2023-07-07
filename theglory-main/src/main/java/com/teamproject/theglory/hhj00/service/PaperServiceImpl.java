@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.teamproject.theglory.hhj00.dao.PaperDao;
 import com.teamproject.theglory.hhj00.domain.Paper;
+import com.teamproject.theglory.kgh.domain.Member;
 
 @Service
 public class PaperServiceImpl implements PaperService {
@@ -20,6 +21,13 @@ public class PaperServiceImpl implements PaperService {
 	public void addPaper(Paper paper) {
 		
 		paperDao.addPaper(paper);
+		
+	}
+	
+	@Override
+	public Member getMember(String id) {
+        System.out.println(id);
+		return paperDao.getMember(id);
 		
 	}
 

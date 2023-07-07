@@ -32,13 +32,24 @@ public class MatchingBoardController {
 	public String matchingBoardList(Model model, 
 														@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
 														@RequestParam(value = "type", required = false, defaultValue = "null") String type,
-														@RequestParam(value = "keyword", required = false, defaultValue = "null") String keyword) {
+														@RequestParam(value = "keyword", required = false, defaultValue = "null") String keyword,
+														@RequestParam(value = "local", required = false, defaultValue = "noLocal") String[] local,
+														@RequestParam(value = "bloodtype", required = false, defaultValue = "noBloodtype") String[] bloodtype,
+														@RequestParam(value = "blood_donation", required = false, defaultValue = "noBloodDonation") String[] blood_donation) {
 		
-		Map<String, Object> modelMap = boardService.matchingBoardList(pageNum, type, keyword);
+		boolean isFilter = !local[0].equals("noLocal") || !bloodtype[0].equals("noBloodtype") || !blood_donation[0].equals("noBloodDonation");
+
+		Map<String, Object> modelMap = boardService.matchingBoardList(pageNum, type, keyword, local, bloodtype, blood_donation);
 		
 		model.addAllAttributes(modelMap);
 		
-		return "matchingBoardList";
+		if(isFilter) {
+			model.addAttribute("local", local);
+			model.addAttribute("bloodtype", bloodtype);
+			model.addAttribute("blood_donation", blood_donation);
+		}
+		
+		return "hhj95/matchingBoardList";
 	}
 	
 	@RequestMapping("/matchingBoardDetail")
@@ -63,7 +74,7 @@ public class MatchingBoardController {
 			model.addAttribute("keyword", keyword);
 		}
 		
-		return "matchingBoardDetail";
+		return "hhj95/matchingBoardDetail";
 	}
 	
 	@RequestMapping(value="/matchingWriteProcess", method=RequestMethod.POST)
@@ -71,7 +82,7 @@ public class MatchingBoardController {
 		
 		boardService.insertBoard(board);
 		
-		return "redirect:matchingBoardList";
+		return "redirect:hhj95/matchingBoardList";
 	}
 	
 	@RequestMapping(value="/update")
