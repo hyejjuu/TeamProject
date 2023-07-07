@@ -1,6 +1,9 @@
 package com.teamproject.theglory.kgh.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.teamproject.theglory.kgh.dao.MemberDao;
@@ -13,6 +16,8 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDao memberDao;
 	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
 	public int login(String id, String pass) {
@@ -26,7 +31,7 @@ public class MemberServiceImpl implements MemberService {
         
      
         
-        if(pass.equals(member.getPass())) {
+        if(passwordEncoder.matches(pass, member.getPass())) {
         	result = 1;
         } else {
         	result=0;
@@ -40,6 +45,11 @@ public class MemberServiceImpl implements MemberService {
         System.out.println(id);
 		return memberDao.getMember(id);
 		
+	}
+	
+	@Override
+	public List<Member> listMember() {
+		return memberDao.listMember();
 	}
 
 }

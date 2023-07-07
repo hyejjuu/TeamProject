@@ -4,12 +4,18 @@
 
 <mapper namespace="com.teamproject.theglory.mapper.PaperMapper" >
 	
+	<select id="getMember" resultType="Member">
+		SELECT * FROM member WHERE id = #{id}
+	</select>
+	
 	<insert id="addPaper" parameterType="Paper">
-		INSERT INTO paper 		
-		VALUES(#{today}, #{today_t}, #{three},#{three_c}, #{three_t}, #{week}, #{week_c}, #{week_t}, #{month},
-					 #{month_c}, #{month_t}, #{months},#{months_c}, #{months_t}, #{year}, #{year_c}, #{year_t}, #{every},
-					 #{every_c}, #{every_t}, #{drug},#{drug_c}, #{drug_t}, #{infectious}, #{infectious_t}, 
-					 #{malaria}, #{malaria_t}, #{vcjd}, #{vcjd_t}, SYSDATE())
+		INSERT INTO paper (today, today_t, three, three_c, three_t, week, week_c, week_t, month, month_c, month_t, months, months_c,
+					                   months_t, year, year_c, year_t, every, every_c, every_t, drug, drug_c, drug_t, infectious, infectious_t,
+					                   malaria, malaria_t, vcjd, vcjd_t, reg_date, id)
+		VALUES (#{today}, #{today_t}, #{three}, #{three_c}, #{three_t}, #{week}, #{week_c}, #{week_t}, #{month}, #{month_c},
+			        #{month_t}, #{months}, #{months_c}, #{months_t}, #{year}, #{year_c}, #{year_t}, #{every}, #{every_c},
+			        #{every_t}, #{drug}, #{drug_c}, #{drug_t}, #{infectious}, #{infectious_t}, #{malaria}, #{malaria_t},
+			        #{vcjd}, #{vcjd_t}, SYSDATE(), #{id})
 	</insert>
 	
 			

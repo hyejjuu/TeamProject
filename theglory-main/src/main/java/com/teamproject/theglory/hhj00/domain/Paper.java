@@ -4,14 +4,21 @@ import java.sql.Timestamp;
 
 public class Paper {
 	
-	private String today, today_t, three, three_c, three_t, week, week_c, week_t, month, month_c, month_t, months, months_c, months_t, 
-							year, year_c, year_t, every, every_c, every_t,
+	private String id, today, today_t, three, three_c, three_t, week, week_c, week_t, month, month_c, month_t, 
+							months, months_c, months_t, year, year_c, year_t, every, every_c, every_t,
 							drug, drug_c, drug_t, infectious, infectious_c, infectious_t, malaria, malaria_t, vcjd, vcjd_t;
 	private Timestamp regDate;
 	
 	public Paper() {}
-
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getInfectious() {
 		return infectious;
 	}

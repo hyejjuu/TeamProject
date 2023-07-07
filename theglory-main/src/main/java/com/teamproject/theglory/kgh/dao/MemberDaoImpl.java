@@ -1,5 +1,7 @@
 package com.teamproject.theglory.kgh.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,5 +27,10 @@ public class MemberDaoImpl implements MemberDao {
 		System.out.println("Dao~~"+id);
 		return sqlSession.selectOne(NAME_SPACE +".getMember", id); 
 }
+
+	@Override
+	public List<Member> listMember() {
+		return sqlSession.selectList(NAME_SPACE +".listMember");
+	}
 
 }
