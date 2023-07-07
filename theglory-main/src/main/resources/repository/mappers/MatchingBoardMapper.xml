@@ -77,6 +77,27 @@
 		<if test="type == 'content'">
 			content LIKE CONCAT('%', #{keyword}, '%')
 		</if>
+		<if test="local[0] != 'noLocal'">
+			AND
+			<foreach item="item"  index="index" collection="local" 
+				open="local IN (" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test="bloodtype[0] != 'noBloodtype'">
+			AND
+			<foreach item="item"  index="index" collection="bloodtype" 
+				open="bloodtype IN (" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test="blood_donation[0] != 'noBloodDonation'">
+			AND
+			<foreach item="item"  index="index" collection="blood_donation" 
+				open="blood_donation IN (" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
 	</where>
 </select>
 

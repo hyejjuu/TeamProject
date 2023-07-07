@@ -14,7 +14,12 @@
 			<input type="hidden" name="pageNum" value="${ pageNum }" />
 			<c:if test="${ searchOption }">
 				<input type="hidden" name="type" value="${ type }" />
-				<input type="hidden" name="keyword" value="${ keyword}" />
+				<input type="hidden" name="keyword" value="${ keyword }" />
+			</c:if>
+			<c:if test="${ filterOption }">
+				<input type="hidden" name="local" value="${ local[0] }" />
+				<input type="hidden" name="bloodtype" value="${ bloodtype[0] }" />
+				<input type="hidden" name="blood_donation" value="${ blood_donation[0] }" />
 			</c:if>
 		</form>
 		<div class="row text-center">
@@ -53,17 +58,17 @@
 				<input class="btn btn-danger" type="button" id="detailDelete" value="삭제하기" />
 					&nbsp;&nbsp;
 				<!-- 일반 게시 글 리스트 요청이면 일반 게시 글 리스트로 돌려보냄 -->
-				<c:if test="${ not searchOption }">
+				<c:if test="${ not searchOption and not filterOption }">
 					<input class="btn btn-primary" type="button" value="목록보기" onclick="location.href='matchingBoardList?pageNum=${pageNum}'"/>
 				</c:if>
-				<!-- 검색 리스트 요청이면 검색 리스트의 동일한 페이지로 돌려보냄 -->
-				<c:if test="${ searchOption }">
+				<!-- 검색 리스트 요청이나 필터 리스트 요청이면 요청 리스트의 동일한 페이지로 돌려보냄 -->
+				<c:if test="${ searchOption or filterOption}">
 					<input class="btn btn-primary" type="button" value="목록보기" 
 						onclick="location.href='matchingBoardList?pageNum=${pageNum}&type=${ type }&keyword=${ keyword }'"/>
 				</c:if>
 			</div>
 		</div>
-		<!-- 추천/떙큐 영역 -->
+	<!-- 추천/땡큐 영역 -->
 		<div class="row my-5">
 			<div class="col border p-3">
 				<div id="recommend" class="text-end">
@@ -142,7 +147,7 @@
 			<div class="col">
 				<form name="replyWriteForm" id="replyWriterForm">
 					<input type="hidden" name="matchNo" value="${ board.no }" />
-					<input type="hidden" name="replyWriter" value="${ sessionScope.member.id }" />
+					<input type="hidden" name="replyWriter" value="${ reply.replyWriter }" />
 						<div class="row bg-light my-3 p-3 border">
 							<div class="col">
 								<div class="row">
@@ -156,6 +161,11 @@
 									</div>
 									<div class="col-md">
 										<input type="submit" value="댓글쓰기" class="btn btn-primary h-100 w-100" id="replyWriteButton">
+									</div>
+									<div class="col-md">
+										<div>비밀 댓글
+											<input type="checkbox" id="secret_reply" name="secret_reply">
+										</div>
 									</div>
 								</div>
 							</div>

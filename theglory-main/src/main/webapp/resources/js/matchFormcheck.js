@@ -1,6 +1,7 @@
 $(function(){
 	// 게시 글쓰기 폼 유효성 검사
 	$("#matchingWriteForm").on("submit", function(){
+		
 		if($("#writer").val().length <= 0) {
 			alert("작성자를 입력해주세요.");
 			$("#writer").focus();
@@ -33,6 +34,7 @@ $(function(){
 			$("#content").focus();
 			return false;
 		}
+		
 	});
 	
 		// 게시 글 수정 폼 요청 처리

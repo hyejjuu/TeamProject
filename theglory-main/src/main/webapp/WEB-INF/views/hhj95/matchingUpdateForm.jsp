@@ -20,6 +20,11 @@
 					<input type="hidden" name="type" value="${ type }" />
 					<input type="hidden" name="keyword" value="${ keyword}" />
 				</c:if>
+				<c:if test="${ filterOption }">
+					<input type="hidden" name="local" value="${ local[0] }" />
+					<input type="hidden" name="bloodtype" value="${ bloodtype[0] }" />
+					<input type="hidden" name="blood_donation" value="${ blood_donation[0] }" />
+				</c:if>
 		 	</div>
 		 	<div class="col-4 ">
 		 		<label for="pass" class="form-label">비밀번호</label>
@@ -75,12 +80,13 @@
 		 	<div class="col-8 offset-md-2 text-center mt-5">
 		 		<input type="submit" value="수정하기" class="btn btn-primary"/>
 					&nbsp;&nbsp;
+					
 				<!-- 일반 게시 글 리스트 요청이면 일반 게시 글 리스트로 돌려보냄 -->
-				<c:if test="${ not searchOption }">
+				<c:if test="${ not searchOption and not filterOption}">
 					<input class="btn btn-primary" type="button" value="목록보기" onclick="location.href='matchingBoardList?pageNum=${pageNum}'"/>
 				</c:if>
-				<!-- 검색 리스트 요청이면 검색 리스트의 동일한 페이지로 돌려보냄 -->
-				<c:if test="${ searchOption }">
+				<!-- 검색 리스트 요청이나 필터 요청이면 검색 리스트의 동일한 페이지로 돌려보냄 -->
+				<c:if test="${ searchOption or filterOption}">
 					<input class="btn btn-primary" type="button" value="목록보기" 
 						onclick="location.href='matchingBoardList?pageNum=${pageNum}&type=${ type }&keyword=${ keyword }'"/>
 				</c:if>

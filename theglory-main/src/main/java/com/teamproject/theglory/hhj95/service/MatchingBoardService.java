@@ -3,12 +3,13 @@ package com.teamproject.theglory.hhj95.service;
 import java.util.List;
 import java.util.Map;
 
+
 import com.teamproject.theglory.hhj95.domain.MatchingBoard;
 import com.teamproject.theglory.hhj95.domain.MatchingReply;
 
 public interface MatchingBoardService {
 
-	// Dao를 이용해 댓글을 삭제하는 메서드
+		// Dao를 이용해 댓글을 삭제하는 메서드
 		void deleteReply(int no);
 		
 		// Dao를 이용해 댓글을 수정하는 메서드

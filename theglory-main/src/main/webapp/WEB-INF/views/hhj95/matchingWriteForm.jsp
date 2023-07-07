@@ -12,7 +12,7 @@
 		<form name="matchingWriteForm" action="matchingWriteProcess" id="matchingWriteForm" class="row g-3 border-primary" method="post">
 			<div class="col-4 offset-md-2">
 				<label for="writer" class="form-label">작성자</label>
-				<input type="text" class="form-control" name="writer" id="writer" placeholder="작성자를 입력해 주세요">
+				<input type="text" class="form-control" name="writer" id="writer" placeholder="작성자를 입력해주세요.">
 		 	</div>
 		 	<div class="col-4 ">
 		 		<label for="pass" class="form-label">비밀번호</label>
