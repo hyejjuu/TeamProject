@@ -69,15 +69,17 @@ public class MatchingBoardDaoImpl implements MatchingBoardDao {
 	}
 
 	@Override
-	public int getBoardCount(String type, String keyword) {
+	public int getBoardCount(String type, String keyword, String[] local, String[] bloodtype, String[] blood_donation) {
 		
-		Map<String, String> params = new HashMap<String, String>();
+		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("type", type);
 		params.put("keyword", keyword);
-		
+		params.put("local", local);
+		params.put("bloodtype", bloodtype);
+		params.put("blood_donation", blood_donation);
+
 		return sqlSession.selectOne(NAME_SPACE + ".getBoardCount", params);
 	}
-
 	@Override
 	public void incrementReadCount(int no) {
 		sqlSession.update(NAME_SPACE + ".incrementReadCount", no);
