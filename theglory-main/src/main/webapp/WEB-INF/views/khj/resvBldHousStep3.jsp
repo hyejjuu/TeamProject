@@ -27,7 +27,7 @@
 	<!-- <input type="hidden" name="no" id="no" value="${b1.no}" /> -->
 	<%-- <input type="hidden" name="pageNum" value="${ pageNum }" /> --%>
 </form>
-<body>
+
 	<form id="reservationChk" name="reservationChk"
 		action="reservationChkProcess">
 		<table class="Calendar mt-5">
@@ -74,18 +74,20 @@
   </script>-->
   
   
-
-		<button type="submit" value="예약하기">선택</button>
+<div class="d-flex justify-content-center mt-4">
+	<!-- 	<button type="submit" value="예약하기">선택</button> -->
+		<div class="p-4 row">
+	<div class="col text-end">
+		<input type="button" value="다음"
+			onclick="location.href='resvBldHousStep4'" class="btn btn-warning" />
+	</div>
+</div></div>
 	</form>
 </body>
 </html>
 
-<div class="p-4 row">
-	<div class="col text-end">
-		<input type="button" value="예약"
-			onclick="location.href='resvBldHousStep4'" class="btn btn-warning" />
-	</div>
-</div>
+
+
 
 <!-- 다른ver 
 <div class="container">

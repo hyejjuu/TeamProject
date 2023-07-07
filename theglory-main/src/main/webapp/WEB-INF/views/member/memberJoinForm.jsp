@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="resources/js/member.js"></script>
+<div class="container">
 <div class="row my-5" id="global-content">
 	<div class="col">
 		<div class="row my-3 text-center">
@@ -173,4 +174,4 @@
 		
 	</div>
 </div>
-
+</div>

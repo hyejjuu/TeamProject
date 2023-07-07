@@ -12,8 +12,8 @@
 		INSERT INTO member 		
 		VALUES(#{id}, #{name}, #{pass},#{gender}, #{bloodtype}, #{address}, #{birth}, #{email}, #{phone}, #{emailGet}, SYSDATE())
 	</insert>
-
-		<select id="memberPassCheck" resultType="String">
+	
+	<select id="memberPassCheck" resultType="String">
 		SELECT pass FROM member
 		WHERE id = #{id}
 	</select>

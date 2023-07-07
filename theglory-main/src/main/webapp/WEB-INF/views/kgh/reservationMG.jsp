@@ -28,16 +28,13 @@ integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0
 
 </style>
 
-<h2>예약관리</h2><br>
-
-<p> 예약 후 헌혈이 완료되었는지 취소되었거나 노쇼가 일어났는지 확인 관리 </p>
 
 <div class="container" >
 <div class="row my-5">
 	<div class="col">
 		<div class="row text-center">
 			<div class="col">
-				<h2 class="fs-3 fw-bold">회원리스트~~~</h2>
+				<h2 class="fs-3 fw-bold">예약리스트</h2>
 			</div>
 		</div>  		
 		<div class="row my-3">			

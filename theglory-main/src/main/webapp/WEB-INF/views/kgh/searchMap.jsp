@@ -67,8 +67,8 @@
           <option value="11">광주전남현액원</option>
           <option value="15">제주혈액원</option>
       </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button class="btn btn-danger" type="submit" id="adButton">검색</button>
     </div>             
   </div> 
@@ -258,7 +258,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col-3">${l.locationAddress}</div>
                 <div class="col-3">${l.tel}</div>
                   <div class="col-3">
-                     <div class="row"><a href="javascript:void(0);" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
+                     <div class="row"><a href="resvBldHousStep3?locationNo=${a.locationNo}" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
                   </div>
             </div>
         </c:forEach>
@@ -273,7 +273,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col">
                     <div class="row">
                     	<div class="col">
-                     		 <a href="javascript:void(0);" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
+                     		 <a href="resvBldHousStep3?locationNo=${a.locationNo}" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
                     	</div>
                     </div>
                 </div>

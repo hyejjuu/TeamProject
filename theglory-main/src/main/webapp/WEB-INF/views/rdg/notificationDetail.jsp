@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="resources/js/formcheck_rdg.js"></script>
 <!-- content -->
+<div class="container">
 <div class="row my-5" id="global-content">
 	<div class="col">
 		<form name="checkForm" id="checkForm">
@@ -73,4 +74,5 @@
 			</div>
 		</div>
 	</div>	
+</div>
 </div>

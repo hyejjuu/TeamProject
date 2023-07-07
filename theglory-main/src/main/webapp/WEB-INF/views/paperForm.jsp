@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="resources/js/paper.js"></script>
-
+<div class="container">
 <div class="row justify-content-md-center mt-5 mb-3" id="global-content">
 	<div>
 	
@@ -627,4 +627,5 @@
 	</form>
 		
 	</div>
+</div>
 </div>
