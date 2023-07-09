@@ -78,7 +78,10 @@ public class MatchingBoardServiceImpl implements MatchingBoardService {
 		// type이나 keyword의 요청 파라미터가 null 이면 false
 		boolean searchOption = (type.equals("null") || keyword.equals("null")) ? false : true;
 		
-		listCount = matchingBoardDao.getBoardCount(type, keyword);
+		// local or bloodtype or blood_donation 요청 파라미터가 no이면 false
+		boolean filterOption = (!local[0].equals("noLocal")) || (!bloodtype[0].equals("noBloodtype")) || (!blood_donation[0].equals("noBloodDonation"));
+		
+		listCount = matchingBoardDao.getBoardCount(type, keyword, local, bloodtype, blood_donation);
 		
 		// 현재 페이지에 해당하는 게시 글 리스트를 DB에서 읽어옴
 		List<MatchingBoard> boardList = matchingBoardDao.matchingBoardList(startRow, PAGE_SIZE, type, keyword, local, bloodtype, blood_donation);
@@ -108,6 +111,7 @@ public class MatchingBoardServiceImpl implements MatchingBoardService {
 		modelMap.put("listCount", listCount);
 		modelMap.put("pageGroup", PAGE_GROUP);
 		modelMap.put("searchOption", searchOption);
+		modelMap.put("filterOption", filterOption);
 		
 		// 검색 요청이면 type과 keyword 모델에 저장
 		if(searchOption) {
@@ -115,11 +119,18 @@ public class MatchingBoardServiceImpl implements MatchingBoardService {
 			modelMap.put("keyword", keyword);
 		}
 		
+		if(filterOption) {
+			modelMap.put("local", local);
+			modelMap.put("bloodtype", bloodtype);
+			modelMap.put("blood_donation", blood_donation);
+		}
+		
 		return modelMap;
 	}
 
 	@Override
 	public List<MatchingReply> replyList(int no) {
+		
 		return matchingBoardDao.replyList(no);
 	}
 

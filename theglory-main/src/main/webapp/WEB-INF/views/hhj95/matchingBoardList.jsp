@@ -131,23 +131,23 @@
 		    									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 		     										<div class="accordion-body">
 		     											<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="A형" value="A형" name="A형">
+  															<input class="form-check-input" type="checkbox" id="A형" value="A형" name="bloodtype">
   																<label class="form-check-label" for="A형">A형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="B형" value="B형"  name="B형">
+  															<input class="form-check-input" type="checkbox" id="B형" value="B형"  name="bloodtype">
   																<label class="form-check-label" for="B형">B형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="AB형" value="AB형"  name="AB형">
+  															<input class="form-check-input" type="checkbox" id="AB형" value="AB형"  name="bloodtype">
   																<label class="form-check-label" for="AB형">AB형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="O형" value="O형"  name="O형">
+  															<input class="form-check-input" type="checkbox" id="O형" value="O형"  name="bloodtype">
   																<label class="form-check-label" for="O형">O형</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="기타" value="기타"  name="기타">
+  															<input class="form-check-input" type="checkbox" id="기타" value="기타"  name="bloodtype">
   																<label class="form-check-label" for="기타">기타</label>
 														</div>
 		     										</div>
@@ -165,15 +165,15 @@
 		    									<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 		     										<div class="accordion-body">
 		     											<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="전혈" value="전혈"  name="전혈">
+  															<input class="form-check-input" type="checkbox" id="전혈" value="전혈"  name="blood_donation">
   																<label class="form-check-label" for="전혈">전혈</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="혈장" value="혈장"  name="혈장">
+  															<input class="form-check-input" type="checkbox" id="혈장" value="혈장"  name="blood_donation">
   																<label class="form-check-label" for="혈장">혈장</label>
 														</div>
 														<div class="form-check form-check-inline">
-  															<input class="form-check-input" type="checkbox" id="혈소판" value="혈소판"  name="혈소판">
+  															<input class="form-check-input" type="checkbox" id="혈소판" value="혈소판"  name="blood_donation">
   																<label class="form-check-label" for="혈소판">혈소판</label>
 														</div>
 		     										</div>
@@ -192,26 +192,19 @@
 				</div>
 			</div>
 		</div>
-	<!-- 검색 요청이거나 필터 요청일 때 (일반 게시글 리스트로 이동할 수 있는 버튼 생성) -->
-	<c:if test="${ searchOption or isFilter }">
-		<div class="row my-3">
-			<div class="col text-center">
-				<c:if test="${ searchOption }">
-				"${ keyword }" 검색 결과
-				</c:if>
-			</div>
-		</div>
+	<!-- 검색 요청이나 필터 요청일때 (일반 게시글 리스트로 이동할 수 있는 버튼 생성) -->
+	<c:if test="${ searchOption or filterOption }">
 		<div class="row my-3">
 			<div class="col-6">
 				<a href="matchingBoardList" class="btn btn-outline-success"> 리스트 </a>
 			</div>
-			<div class="col-6 text-end">
-				<a href="matchingWriteForm" class="btn btn-outline-success"> 글쓰기 </a>
-			</div>
+				<div class="col-6 text-end">
+					<a href="matchingWriteForm" class="btn btn-outline-success"> 글쓰기 </a>
+				</div>
 		</div>
 	</c:if>
-	<!-- 검색 요청과 필터 요청이 아닐 경우 -->
-	<c:if test="${ not searchOption and not isFilter }">
+	<!-- 검색 요청이나 필터요청이 아닐 경우 -->
+	<c:if test="${ not searchOption and not filterOption}">
 	<div class="row">
 		<div class="col text-end mt-3">
 			<a href="matchingWriteForm" class="btn btn-outline-success">글쓰기</a>
@@ -232,13 +225,15 @@
 					</tr>
 				</thead>
 				<tbody class="text-secondary text-center">
-					<!-- 검색 요청이면서 검색 된 게시 글이 있는 경우 -->
-					<c:if test="${ searchOption and not empty boardList }">
+					<!-- 검색 요청이나 필터요청이면서 검색 된 게시 글이 있는 경우 -->
+					<c:if test="${ (searchOption or filterOption) and not empty boardList }">
 						<c:forEach var="b" items="${boardList}">
 							<tr >
 								<td>${ b.no }</td>
 								<td>${ b.local } | ${ b.bloodtype } | ${ b.bloodDonation }</td>
-								<td><a href="matchingBoardDetail?no=${b.no}&pageNum=${currentPage}&type=${type}&keyword=${keyword}" class="text-decoration-none link-secondary">
+								<td>
+									<a href="matchingBoardDetail?no=${b.no}&pageNum=${currentPage}
+										&type=${type}&keyword=${keyword}" class="text-decoration-none link-secondary">
 									${ b.title }
 									</a>
 								</td>
@@ -249,7 +244,7 @@
 						</c:forEach>
 					</c:if>
 					<!-- 일반 게시 글 리스트면서 게시 글 리스트가 존재할 경우 -->
-					<c:if test = "${ not searchOption and not empty boardList }">
+					<c:if test = "${ not searchOption and not filterOption and not empty boardList }">
 						<c:forEach var="b" items="${boardList}">
 							<tr >
 								<td>${ b.no }</td>
@@ -264,14 +259,8 @@
 							</tr>
 						</c:forEach>
 					</c:if>
-					<!-- 검색 요청이면서 검색된 리스트가 존재하지 않을 경우 -->
-					<c:if test="${ searchOption and empty boardList }">
-						<tr>
-							<td colspan="5" class="text-center"> "${ keyword }" 가 포함된 게시 글이 존재하지 않습니다. </td>
-						</tr>
-					</c:if>
-					<!-- 일반 게시 글이면서 리스트가 존재하지 않을 겨우 -->
-					<c:if test="${ not searchOption and empty boardList }">
+					<!-- 리스트가 존재하지 않을 겨우 -->
+					<c:if test="${ empty boardList }">
 						<tr>
 							<td colspan="5" class="text-center">게시 글이 존재하지 않습니다. </td>
 						</tr>
@@ -280,15 +269,16 @@
 			</table>
 		</div>
 	</div>
-	<!-- 검색 요청이면서 검색된 리스트가 존재할 경우 페이지네이션 -->
-	<c:if test="${ searchOption and not empty boardList }">
+	<!-- 검색 요청이나 필터 요청이면서 검색된 리스트가 존재할 경우 페이지네이션 -->
+	<c:if test="${ (filterOption or searchOption) and not empty boardList }">
 		<div class="row">
 			<div class="col">
 				<nav aria-label="Page navigation">
 					<ul class="pagination justify-content-center">
 						<c:if test="${ startPage > pageGroup }">
 							<li class="page-item">
-								<a class="page-link" href="matchingBoardList?pageNum=${ startPage - pageGroup }&type=${type}&keyword=${keyword}">이전</a>
+								<a class="page-link" href="matchingBoardList?pageNum=${ startPage - pageGroup }
+									&type=${type}&keyword=${keyword}&local=${local[0]}&bloodtype=${bloodtype[0]}&bloodDonation=${blood_donation[0]}">이전</a>
 							</li>
 						</c:if>
 						<c:forEach var="i" begin="${ startPage }" end="${ endPage }">
@@ -299,13 +289,15 @@
 							</c:if>
 							<c:if test="${ i != currentPage }">
 								<li class="page-item">
-									<a class="page-link" href="matchingBoardList?pageNum=${ i }&type=${type}&keyword=${keyword}">${ i }</a>
+									<a class="page-link" href="matchingBoardList?pageNum=${ i }
+										&type=${type}&keyword=${keyword}&local=${local[0]}&bloodtype=${bloodtype[0]}&bloodDonation=${blood_donation[0]}">${ i }</a>
 								</li>
 							</c:if>
 						</c:forEach>
 						<c:if test="${ endpage < pageCount }">
 							<li class="page-item">
-								<a class="page-link" href="matchingBoardList?pageNum=${ startPage + pageGroup }&type=${type}&keyword=${keyword}">다음</a>
+								<a class="page-link" href="matchingBoardList?pageNum=${ startPage + pageGroup }
+									&type=${type}&keyword=${keyword}&local=${local[0]}&bloodtype=${bloodtype[0]}&bloodDonation=${blood_donation[0]}">다음</a>
 							</li>
 						</c:if>
 					</ul>
@@ -314,7 +306,7 @@
 		</div>		
 	</c:if>
 	<!-- 일반 게시글 요청이면서 검색된 리스트가 존재 할 경우 페이지네이션 -->
-	<c:if test="${ not searchOption and not empty boardList }">
+	<c:if test="${ not searchOption and not filterOption and not empty boardList }">
 		<div class="row">
 			<div class="col">
 				<nav aria-label="Page navigation">

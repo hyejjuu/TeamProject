@@ -32,7 +32,7 @@ public interface MatchingBoardDao {
 		public abstract List<MatchingBoard> matchingBoardList(int startRow, int num, String type, String keyword, String[] local, String[] bloodtype, String[] blood_donation); 
 		
 		// DB 테이블에 등록된 모든 게시 글의 수를 반환하는 메서드
-		public abstract int getBoardCount(String type, String keyword);
+		public abstract int getBoardCount(String type, String keyword, String[] local, String[] bloodtype, String[] blood_donation);
 		
 		// 게시 글 리스트 요청 시 호출되는 메서드
 		public abstract List<MatchingBoard> matchingBoardList();
