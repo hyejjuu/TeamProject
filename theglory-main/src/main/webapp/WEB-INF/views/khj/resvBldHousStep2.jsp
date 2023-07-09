@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<div class="container">
+
 <div class="row my-10" id="global-content">
 	<div class="col">
 		<div class="row my-3 p-2 text-center">
@@ -156,10 +156,9 @@
 			<div class="p-4  row">
 				<div class="col text-end">
 					<input type="button" value="예약하기"
-						onclick="location.href='resvBldHousStep3'" class="btn btn-warning" />
+						onclick="location.href='resvOneSelect?locationNo=1'" class="btn btn-warning" />
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>

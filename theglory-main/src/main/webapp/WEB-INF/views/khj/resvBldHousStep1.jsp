@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- content -->
-<div class="container">
 <div class="row my-5" id="global-content">
 	<div class="col">
 		<div class="row my-3 text">
@@ -72,11 +71,10 @@
 				</div>
 				<div class="p-4  row">
 					<div class="col text-end">
-						<a href="resvBldHousStep2" class="btn btn-outline-secondary">다음</a>
+						<a href="searchMap" class="btn btn-outline-secondary">다음</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>

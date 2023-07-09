@@ -46,28 +46,24 @@
 					</div>
 					
 					<div class="col tab-pane fade" id="list-today" role="tabpanel" aria-labelledby="list-today">
-						<h2><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. 오늘</font></font></strong></h2>
+						<h2>1. 오늘</h2>
 						<p>
 							<font style="vertical-align: inherit;">
-								<strong><font style="vertical-align: inherit;">아래와 같은 경험을 해당 기간 안에 하신 분 중 일부는 일정기간 동안 헌혈할 수 없습니다. <br>아래 사항 중 선택해 주십시오.</font></strong>
+								<strong><font style="vertical-align: inherit;">아래와 같은 경험을 해당 기간 안에 하신 분 중 일부는<br>일정기간 동안 헌혈할 수 없습니다. <br>아래 사항 중 선택해 주십시오.</font></strong>
 							</font>
 						</p>
 						<fieldset class="form-group">
-							<div class="col-sm-3 text-start">
-								<div class="form-check m-3 border-bottom">
-									<input class="form-check-input" type="radio" name="today" id="1o" value="해당없음">
-									<label class="form-check-label" for="optionsRadios1">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;"><strong>해당 없음</strong>(다음으로 이동)</font>
-										</font>
+							<div class="col-auto text-start">
+								<div class="form-check m-3 border-bottom">									
+									<label class="form-check-label">
+										<input class="form-check-input" type="radio" name="today" id="1o" value="해당없음">
+										<strong>해당 없음</strong>(다음으로 이동)
 									</label>
 								</div>
-								<div class="form-check m-3">
-									<input class="form-check-input" type="radio" name="today" id="1n1" value="몸상태 안좋음">
+								<div class="form-check m-3">									
 									<label class="form-check-label" for="optionsRadios2">
-										<font style="vertical-align: inherit;">
-											<font style="vertical-align: inherit;">몸상태 안좋음</font>
-										</font>
+										<input class="form-check-input" type="radio" name="today" id="1n1" value="몸상태 안좋음">
+										몸상태 안좋음
 									</label>
 								</div>
 							</div>
@@ -84,7 +80,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="three" id="2o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -123,7 +119,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="week" id="3o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -159,7 +155,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="month" id="4o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -207,7 +203,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="months" id="5o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -232,8 +228,10 @@
 							</div>
 						</fieldset>
 						<fieldset class="form-group m-3">
-							<div class="col-sm-3 text-start">
-								<legend class="mt-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">여성만</font></font></legend>
+							<div class="col-auto text-start">
+								<legend class="mt-4">
+									<font style="vertical-align: inherit;"><font style="vertical-align: inherit;">여성만</font></font>
+								</legend>
 								<div class="form-check m-3">
 									<input class="form-check-input" type="radio" name="months" id="5f1" value="임신">
 									<label class="form-check-label" for="optionsRadios1">
@@ -266,7 +264,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="year" id="6o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -329,7 +327,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="every" id="7o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -401,7 +399,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="drug" id="8o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -452,7 +450,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="infectious" id="9o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -512,7 +510,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="malaria" id="10o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">
@@ -558,7 +556,7 @@
 						</p>
 						<fieldset class="form-group">
 							<div class="col text-start">
-								<div class="form-check col-sm-3 m-3 border-bottom">
+								<div class="form-check col-auto m-3 border-bottom">
 									<input class="form-check-input" type="radio" name="vcjd" id="11o" value="해당없음">
 									<label class="form-check-label" for="optionsRadios1">
 										<font style="vertical-align: inherit;">

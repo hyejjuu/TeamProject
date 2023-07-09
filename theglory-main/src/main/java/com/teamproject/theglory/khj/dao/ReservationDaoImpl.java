@@ -1,6 +1,8 @@
 package com.teamproject.theglory.khj.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,11 @@ public class ReservationDaoImpl implements ReservationDao {
 		this.sqlSession = sqlSession;
 	}
 	
+	public String getLocationName(int locationNo) {
+		return sqlSession.selectOne(NAME_SPACE + ".getLocationName", locationNo);
+	}
+	
+	
 	@Override
 	public List<Reservation> resvBldHousStep1() {
 		return sqlSession.selectList(NAME_SPACE + ".resvBldHousStep1");		
@@ -31,18 +38,23 @@ public class ReservationDaoImpl implements ReservationDao {
 		return sqlSession.selectList(NAME_SPACE + ".resvBldHousStep2");		
 	}
 	
-
 	@Override
-	public List<Reservation> resvBldHousStep3() {
+	public List<Reservation> resvOneSelect(String reservationDate, int locationNo) {
 		
-		return sqlSession.selectList(NAME_SPACE + ".resvBldHousStep3");		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("reservationDate", reservationDate);
+		params.put("locationNo", locationNo);
+		
+		return sqlSession.selectList(NAME_SPACE+".resvOneSelect", params);
 	}
-	
+
 	@Override
 	public List<Reservation> resvBldHousStep4() {
 		
 		return sqlSession.selectList(NAME_SPACE + ".resvBldHousStep4");		
 	}
+
+	
 	
 	@Override
 	public List<Reservation> resvBldHousStep5() {
@@ -56,9 +68,19 @@ public class ReservationDaoImpl implements ReservationDao {
 	}
 
 	@Override
+	public void updateReservation(Reservation r) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	public void deleteReservation(int reservationNo) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	
+
 
 }

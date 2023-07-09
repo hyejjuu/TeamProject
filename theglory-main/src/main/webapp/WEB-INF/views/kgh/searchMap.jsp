@@ -258,7 +258,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col-3">${l.locationAddress}</div>
                 <div class="col-3">${l.tel}</div>
                   <div class="col-3">
-                     <div class="row"><a href="resvBldHousStep3?locationNo=${a.locationNo}" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
+                     <div class="row"><a href="resvOneSelect?locationNo=${l.locationNo}" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
                   </div>
             </div>
         </c:forEach>
@@ -270,10 +270,11 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col">${a.locationName}</div>
                 <div class="col">${a.locationAddress}</div>
                 <div class="col">${a.tel}</div>
+                   <div class="col">${a.locationNo}</div>
                 <div class="col">
                     <div class="row">
                     	<div class="col">
-                     		 <a href="resvBldHousStep3?locationNo=${a.locationNo}" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
+                     	 <a href="resvOneSelect?locationNo=${a.locationNo}" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
                     	</div>
                     </div>
                 </div>

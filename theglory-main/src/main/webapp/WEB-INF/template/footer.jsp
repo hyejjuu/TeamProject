@@ -18,24 +18,21 @@
 				<div class="col mb-3"></div>
 				<div class="col mb-3">
 					<ul class="nav flex-column">
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">공지사항 </a></li>
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">헌혈 안내문 </a></li>
-						<li class="nav-item mb-2"><a href="#"class="nav-link p-0 text-muted">헌혈시 유의사항 </a></li>
+						<li class="nav-item mb-2"><a href="notificationList" class="nav-link p-0 text-muted">공지사항 </a></li>
+						<li class="nav-item mb-2"><a href="searchMap" class="nav-link p-0 text-muted">장소찾기 </a></li>
 					</ul>
 				</div>
 				<div class="col mb-3">
-					<ul class="nav flex-column">
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">장소찾기 </a></li>
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">헌혈예약 </a></li>
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">전자문진 </a></li>
+					<ul class="nav flex-column">						
+						<li class="nav-item mb-2"><a href="resvBldHousStep1" class="nav-link p-0 text-muted">헌혈예약 </a></li>
+						<li class="nav-item mb-2"><a href="paperForm" class="nav-link p-0 text-muted">전자문진 </a></li>
 					</ul>
 				</div>
 
 				<div class="col mb-3">
 					<ul class="nav flex-column">
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">매칭게시판 </a></li>
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">굿즈 </a></li>
-						<li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">뉴스/기사 </a></li>
+						<li class="nav-item mb-2"><a href="matchingBoardList" class="nav-link p-0 text-muted">매칭게시판 </a></li>
+						<li class="nav-item mb-2"><a href="goodsList" class="nav-link p-0 text-muted">굿즈 </a></li>						
 					</ul>
 				</div>
 			</footer>

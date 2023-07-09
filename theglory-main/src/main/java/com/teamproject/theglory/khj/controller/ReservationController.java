@@ -2,8 +2,7 @@ package com.teamproject.theglory.khj.controller;
 
 
 import java.util.List;
-
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.teamproject.theglory.kgh.service.LocationMapService;
 import com.teamproject.theglory.khj.domain.Reservation;
 import com.teamproject.theglory.khj.service.ReservationService;
 
@@ -20,10 +21,12 @@ import com.teamproject.theglory.khj.service.ReservationService;
 public class ReservationController {	
 	
 	private ReservationService service;
+	private LocationMapService serviceLM;
 	
 	@Autowired
-	public ReservationController(ReservationService service) {
+	public ReservationController(ReservationService service , LocationMapService serviceLM) {
 		this.service = service;
+		this.serviceLM = serviceLM;
 	}
 	
 	//main페이지	
@@ -48,24 +51,40 @@ public class ReservationController {
 	}
 	
 	@RequestMapping(value={"/resvBldHousStep4", "/list"}, method=RequestMethod.GET)
-	public String resvBldHousStep4(Model model) {		
-		List<Reservation> bList = service.resvBldHousStep4();
-			
-		model.addAttribute("bList",bList);
+	public String resvBldHousStep4(Model model) {
 		
+		
+		List<Reservation> bList = service.resvBldHousStep4();			
+		model.addAttribute("bList",bList);		
 		return "khj/resvBldHousStep4";
+	}	
+	
+	
+	@RequestMapping(value={"/resvOneSelect"}, method=RequestMethod.GET)
+	public String resvOneSelect(Model model, 
+			@RequestParam(value ="reservationDate", required = false, defaultValue="null")
+				String reservationDate,
+			@RequestParam(value ="locationNo", required = false, defaultValue="1")
+				int locationNo) throws Exception {
+				
+	
+		model.addAllAttributes(service.resvOneSelect(reservationDate, locationNo));
+		model.addAttribute("locationNo", locationNo);
+		return "khj/resvOneSelect";
 	}
 	
-	
-	
-	@RequestMapping(value={"/resvBldHousStep3", "/list"}, method=RequestMethod.GET)
-	public String resvBldHousStep3(Model model) {		
-		List<Reservation> bList = service.resvBldHousStep3();
-			
-		model.addAttribute("reservation",bList);
-		
-		return "khj/resvBldHousStep3";
+	// 예약현황 Ajax 처리 메서드
+	@RequestMapping(value={"/ajaxResvOneSelect"})
+	@ResponseBody
+	public Map<String, Object> ajaxResvOneSelect(Model model, 
+			@RequestParam(value ="reservationDate", required = false, defaultValue="null")
+				String reservationDate,
+			@RequestParam(value ="locationNo", required = false, defaultValue="1")
+				int locationNo) throws Exception {
+				
+		return service.resvOneSelect(reservationDate, locationNo);
 	}
+	
 	
 	@RequestMapping(value={"/resvBldHousStep2", "/list"}, method=RequestMethod.GET)
 	public String resvBldHousStep2(Model model) {		
@@ -80,22 +99,38 @@ public class ReservationController {
 	@RequestMapping(value={"/resvBldHousStep1", "/list"}, method=RequestMethod.GET)
 	public String resvBldHousStep1(Model model) {
 		
+		
+		
 		List<Reservation> bList = service.resvBldHousStep1();
 			
 		model.addAttribute("bList", bList);
 		
 
 		return "khj/resvBldHousStep1";		
-	}
+	}	
 	
-	@RequestMapping(value="insertAction", method=RequestMethod.GET)
+	@RequestMapping(value="reservationChkProcess", method=RequestMethod.POST)
+	public String check(Model model, int locationNo, int donationTypeNo , String reservationDate , String reservationTime) {
+	
+		 model.addAttribute("locationNo", locationNo);
+		 model.addAttribute("reservationDate", reservationDate);
+		 model.addAttribute("reservationTime", reservationTime);
+		 model.addAttribute("donationTypeNo", donationTypeNo);
+	
+		 return "khj/resvBldHousStep4";
+	}	
+	
+	@RequestMapping(value="insertAction", method=RequestMethod.POST)
 	public String insertReservation(Reservation r) {
 	
-	service.insertReservation(r);
+		// model.addAttribute("locationNo", locationNo);
+		 //model.addAttribute("reservationDate", reservationDate);
+		 //model.addAttribute("reservationTime", reservationTime);
+		// model.addAttribute("donationTypeNo", donationTypeNo);
+		 
+		 service.insertReservation(r);
 	
-	return "khj/resvBldHousStep2";
+		 return "redirect:/paperForm";
 			
 	}
-		
-	//@RequestMapping("/resvBldHousStep3")
 }

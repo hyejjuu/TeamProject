@@ -3,57 +3,106 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
-<div class="row my-10" id="global-content">
+<div class="row my-5" id="global-content">
 	<div class="col">
-		<div class="row text-center">
+		<div class="row my-3 fw-5">
 			<div class="col">
-				<h2 class="fs-3 fw-bold">form 양식</h2>
+				<h2 class="fs-3 fw-bold text-center">개인정보를 확인해 주세요</h2>
 			</div>
 		</div>
-		<div class="col-8 offset-md-2">
-			<label for="writer" class="form-label">회원</label> <input type="text"
-				class="form-control" name="writer" id="writer" value="${b.memberId}">
-		</div>
-		<form action="insertAction">
-			<div class="col-8 offset-md-2 text-center">
-				<table border="1">
-					<tr>
-						<td>아이디</td>
-						<td><input type="text" name="memberId"></td>
-					</tr>
-					<tr>
-						<td>날짜</td>
-						<td><input type="text" name="reservationDate">${reservationDate}</td>
-						<!--ex) 20230629 -->
-					</tr>
-					<tr>
-						<td>시간</td>
-						<td><input type="text" name="reservationTime"></td>
-						<!--ex) 0900 -->
-					</tr>
-					<tr>
-						<td>장소</td>
-						<td><input type="text" name="locationNo"></td>
-						<!-- 숫자 -->
-					</tr>
-					<tr>
-						<td>헌혈상태</td>
-						<td><input type="text" name="stateNo"></td>
-						<!-- 숫자 -->
-					</tr>
-					<tr>
-						<td>헌혈타입</td>
-						<td><input type="text" name="donationtypeNo"></td>
-						<!-- 숫자 -->
-					</tr>
-				</table>
-				<button type="submit">전송</button>
-				<a href="resvBldHousStep5"><button type="button"
-						class="btn btn-primary">확인</button></a>
+		<div class="row my-3">
+			<div class="col-8 offset-2">
+				<div class="row mt-2 mb-3 border-bottom fw-bold">&nbsp;개인정보입력</div>
 			</div>
-		</form>
+		</div>
+		<div class="row my-3">
+			<div class="col-8 offset-2">
+				<label for="writer" class="form-label">이름: ${sessionScope.member.name} </label>
+			</div>
+		</div>
+		<div class="row my-3">
+			<div class="col-8 offset-2">
+				<label for="birth" class="form-label">휴대전화 : ${sessionScope.member.phone}</label>
+			</div>
+		</div>
+		<div class="row my-3">
+			<div class="col-8 offset-2">
+				<label for="birth" class="form-label">생년월일 : ${sessionScope.member.birth}</label>
+			</div>
+		</div>
 	</div>
-
 </div>
+<div class="row my-3 fw-5">
+	<div class="col-8 offset-2">
+		<div class="row mt-1 mb-3 border-bottom fw-bold">&nbsp;개인정보 수집 및
+			이용에 대한 안내</div>
+	</div>
+	<div class="col-8 offset-2">
+		<div class="row mt-2 mb-3 border-bottom fw-bold">
+			&nbsp;개인정보 수집 및 이용에 대한 안내
+			<div>
+				<p>
+					수집 및 이용 목적 <br> &nbsp;&nbsp;헌혈예약 및 예약 관련 상담
+				</p>
+
+				<p>
+					수집 및 이용 항목 (필수) <br> &nbsp;&nbsp;이름, 주민등록번호(외국인등록번호), 휴대전화번호<br>
+					&nbsp;&nbsp;혈액관리법 시행령 제10조의 2에 따라 헌혈예약 시 헌혈경력 및 검사결과 조회를 위해 주민등록번호를
+					처리하고 <br>&nbsp;&nbsp;있습니다.
+				</p>
+
+				<p>
+					이용 및 보유 기간<br> &nbsp;&nbsp;헌혈예약 후 5년
+				</p>
+
+				<p>
+					동의거부 권리 및 불이익<br> &nbsp;&nbsp;정보주체는 개인정보 수집에 동의하지 않을 권리가 있으며,
+					필수항목을 입력하지 않으시는 경우 헌혈예약이 <br>&nbsp;&nbsp;불가합니다.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row my-3">
+	<div class="col-8 offset-2">
+		<div class="row gx-3">
+			<!-- 라디오 버튼  -->
+			<div class="col-auto">
+				<input type="radio" class="form-check-input" name="infoGet" id="infoOk" value="true">
+				<label class="form-check-label" for="infoOk">동의합니다</label>
+			</div>
+			<div class="col-auto">
+				<div class="form-check col-auto">
+					<input type="radio" class="form-check-input" name="infoGet" id="infoNo" value="false">
+					<label class="form-check-label" for="infoNo">동의하지않습니다</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<form action="insertAction" method="post" id="insertAction">
+	<input type="hidden" name="memberId" value="${sessionScope.member.id}" >
+    <input type="hidden" name="reservationDate" value="${reservationDate}">
+    <input type="hidden" name="reservationTime" value="${reservationTime}">
+	<input type="hidden" name="locationNo" value="${locationNo}">    
+	<input type="hidden" name="donationTypeNo" value="${donationTypeNo}">
+	
+	<div class="row mb-3 mt-5 text-center">
+		<div class="col-8 offset-2">
+			<button type="submit" class="btn btn-warning">예약하기</button>
+		</div>
+	</div>
+</form>
+<script>
+	$("#insertAction").on("submit", function(e) {
+		
+		console.log($("input[type='radio']:checked").val());
+		if($("input[type='radio']:checked").val() != 'true') {
+			alert("개인정보 수집 및 이용에 대해서 동의해 주세요");
+			return false;
+		}
+	});
+</script>
 

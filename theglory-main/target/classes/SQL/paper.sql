@@ -3,7 +3,8 @@ use theglory;
 
 DROP TABLE IF EXISTS paper;
 CREATE TABLE IF NOT EXISTS paper(
-	id varchar(20) PRIMARY KEY,
+    paper_no int AUTO_INCREMENT PRIMARY KEY,
+	id varchar(20),
 	today VARCHAR(100),
     today_t VARCHAR(100),
     three VARCHAR(100),
