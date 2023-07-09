@@ -10,7 +10,7 @@
 
     <div class="container pt-5"> 
     
-<form class="addressForm form-inline" name="addressForm" method="get" action="locationAddress">
+<form class="addressForm form-inline" name="addressForm" method="get" action="SearchAddress">
   <input type="hidden" name="type" value="address"/>
   <div class="row justify-content-center">
     <div class="col-2 border border-lightgray bg-light">      
@@ -42,7 +42,7 @@
   </div>
 </form>
 
-<form class="addressForm form-inline" name="addressForm" method="get" action="areaAction"> 
+<form class="addressForm form-inline" name="addressForm" method="get" action="SearchArea"> 
   <input type="hidden" name="type" value="area"/>
   <div class="row justify-content-center">
     <div class="col-2 border border-lightgray bg-light">
@@ -67,8 +67,8 @@
           <option value="11">광주전남현액원</option>
           <option value="15">제주혈액원</option>
       </select>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <button class="btn btn-danger" type="submit" id="adButton">검색</button>
     </div>             
   </div> 
@@ -258,7 +258,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col-3">${l.locationAddress}</div>
                 <div class="col-3">${l.tel}</div>
                   <div class="col-3">
-                     <div class="row"><a href="javascript:void(0);" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
+                     <div class="row"><a href="resvBldHousStep3?locationNo=${a.locationNo}" onclick="checkLogin('${l.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a></div>
                   </div>
             </div>
         </c:forEach>
@@ -273,7 +273,7 @@ for (var i = 0; i < positions.length; i ++) {
                 <div class="col">
                     <div class="row">
                     	<div class="col">
-                     		 <a href="javascript:void(0);" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
+                     		 <a href="resvBldHousStep3?locationNo=${a.locationNo}" onclick="checkLogin('${a.locationNo}')"><button class="btn btn-danger" type="button">예약</button></a>
                     	</div>
                     </div>
                 </div>
@@ -390,10 +390,11 @@ for (var i = 0; i < positions.length; i ++) {
 
 <c:if test="${not sessionScope.isLogin}">
     <script>
-        function checkLogin(locationNo) {
-        	event.preventDefault();
-            alert('로그인 후에 예약할 수 있습니다.'); //마지막 수정이 커밋이 안된듯
-            return false;            
-        }
+    function checkLogin(locationNo) {
+        event.preventDefault();
+        alert('로그인 후에 예약할 수 있습니다.');
+        window.location.href = 'login';  // 로그인 페이지 URL로 이동
+        return false;
+    }
     </script>
 </c:if>

@@ -13,9 +13,7 @@ crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"crossorigin="anonymous"></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap" rel="stylesheet">
+
  
 <!DOCTYPE html>
 
@@ -25,11 +23,7 @@ integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0
 <title>관리자 페이지</title>
 
     <style>
-    *{
-    font-family: 'Single Day', cursive;
-    
-}
-    
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -540,7 +534,7 @@ function FnMChart() {
           padding: '15px',
         },
         subtitle: {
-          text: '06/10/20 - 07/11/20',
+          text: '2022',
           fontColor: '#777',
           fontFamily: 'Lato',
           fontSize: '12px',
@@ -967,7 +961,7 @@ function AreaChart(){
   <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
     <a href="main" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-      <span class="fs-4">Sidebar</span>
+      <span class="fs-4">관리자 페이지</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
@@ -1027,16 +1021,16 @@ function AreaChart(){
 
 <div class="b-example-divider b-example-vr"></div>
 
-<div class="container">
+<div class="container my-5">
 
-<div class="row" id="selectContainer" style="display: none;">
+<div class="row my-5 " id="selectContainer" style="display: none;">
  <div class="col-4">
     <select id="mySelect">
       <option onclick="showChart()">연령별</option>
       <option onclick="showAreaChart">장소</option>
       <option onclick="showBalance() ">남녀</option>
     </select>
- </div>  
+ </div>  <br>
 </div>
 
 <div class="row"  id="content">
@@ -1141,7 +1135,7 @@ function showReservation() {
 function showNotification() {
 
     var xhr = new XMLHttpRequest();   
-    xhr.open("GET", "notificationList", true);
+    xhr.open("GET", "MGnotificationList", true);
     var selectContainer = document.getElementById("selectContainer");
     selectContainer.style.display = "none";
 
@@ -1163,7 +1157,7 @@ function showNotification() {
 function showMatching() {
 
     var xhr = new XMLHttpRequest();   
-    xhr.open("GET", "matchingBoardList", true);
+    xhr.open("GET", "MGmatchingBoardList", true);
     var selectContainer = document.getElementById("selectContainer");
     selectContainer.style.display = "none";
 

@@ -20,40 +20,40 @@ import net.nurigo.sdk.message.service.DefaultMessageService;
 @Controller
 public class MessaseProcessController {
 
-	static final String API_KEY = "NCSHTNUWH8EPDDNF";
-	static final String API_SECRET = "KYC5EF81GEVDVRGRIR3NVEYHWA5TWRGG";
+	static final String API_KEY = "NCS9MNQRIK25YEMS";
+	static final String API_SECRET = "0KTAGTGGF9669GKWO9PEUIZ85YKMSGZP";
 	
     final DefaultMessageService messageService;
 
     public MessaseProcessController() {
-        // 반드시 계정 내 등록된 유효한 API 키, API Secret Key를 입력해주셔야 합니다!
+        // 諛섎뱶�떆 怨꾩젙 �궡 �벑濡앸맂 �쑀�슚�븳 API �궎, API Secret Key瑜� �엯�젰�빐二쇱뀛�빞 �빀�땲�떎!
         this.messageService = NurigoApp.INSTANCE.initialize(
         		API_KEY, API_SECRET, 
         		"https://api.coolsms.co.kr");
     }
 	
     /**
-     * 단일 메시지 발송 예제
+     * �떒�씪 硫붿떆吏� 諛쒖넚 �삁�젣
      */
     @RequestMapping("/sendSms")
     @ResponseBody
     public Map<String, String> sendOne(HttpSession session, String phone) {
         Message message = new Message();
         
-        // 인증번호 6자리 생성
+        // �씤利앸쾲�샇 6�옄由� �깮�꽦
         GenerateCertNumber ge = new GenerateCertNumber();
         ge.setCertNumLength(6);
         String certNum = ge.excuteGenerate();
         
-        // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
-        message.setFrom("01051537598");
+        // 諛쒖떊踰덊샇 諛� �닔�떊踰덊샇�뒗 諛섎뱶�떆 01012345678 �삎�깭濡� �엯�젰�릺�뼱�빞 �빀�땲�떎.
+        message.setFrom("01020429123");
         message.setTo(phone);
-        message.setText("[인증번호] : " + certNum);
+        message.setText("[�씤利앸쾲�샇] : " + certNum);
 
         SingleMessageSentResponse response = messageService.sendOne(new SingleMessageSendingRequest(message));
         
-        // 2000 정상 발송됨, 4000 수신 완료
-        // 참고 : https://docs.coolsms.co.kr/api-reference/message-status-codes
+        // 2000 �젙�긽 諛쒖넚�맖, 4000 �닔�떊 �셿猷�
+        // 李멸퀬 : https://docs.coolsms.co.kr/api-reference/message-status-codes
         System.out.println(response.getStatusCode());
         System.out.println(response.getStatusMessage());
         
