@@ -54,7 +54,11 @@ public class ReservationDaoImpl implements ReservationDao {
 	public void insertReservation(Reservation r) {
 		sqlSession.insert(NAME_SPACE + ".insertReservation", r);
 	}
-	
 
+	@Override
+	public void deleteReservation(int reservationNo) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

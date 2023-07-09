@@ -4,165 +4,81 @@ $(document).ready(function() {
 	$("input:radio[name=three]").click(function(){ 
            
 		if($("input:radio[name=three]:checked").val()=='해당없음'){
-			$('.three_c').attr("disabled", true)
+			$('.three_c').attr("disabled", true);
 		}else{
-				$('.three_c').attr("disabled", false)
-			}
+			$('.three_c').attr("disabled", false);
+		}
 
 	});
 	
 	$("input:radio[name=week]").click(function(){ 
            
 		if($("input:radio[name=week]:checked").val()=='해당없음'){
-			$('.week_c').attr("disabled", true)
+			$('.week_c').attr("disabled", true);
 		}else{
-				$('.week_c').attr("disabled", false)
-			}
+			$('.week_c').attr("disabled", false);
+		}
 
 	});
 	
 	$("input:radio[name=month]").click(function(){
 	
 		if($("input:radio[name=month]:checked").val()=='해당없음'){
-			$('.month_c').attr("disabled", true)
+			$('.month_c').attr("disabled", true);
 		}else{
-				$('.month_c').attr("disabled", false)
-			}
+			$('.month_c').attr("disabled", false);
+		}
 			
 	});
 	
 	$("input:radio[name=months]").click(function(){
 	
 		if($("input:radio[name=months]:checked").val()=='해당없음'){
-			$('.months_c').attr("disabled", true)
+			$('.months_c').attr("disabled", true);
 		}else{
-				$('.months_c').attr("disabled", false)
-			}
+			$('.months_c').attr("disabled", false);
+		}
 				
 	});
 	
 	$("input:radio[name=year]").click(function(){
 		
 		if($("input:radio[name=year]:checked").val()=='해당없음'){
-			$('.year_c').attr("disabled", true)
+			$('.year_c').attr("disabled", true);
 		}else{
-			$('.year_c').attr("disabled", false)
-			}
+			$('.year_c').attr("disabled", false);
+		}
 			
 	});
 	
 	$("input:radio[name=every]").click(function(){
 	
 		if($("input:radio[name=every]:checked").val()=='해당없음'){
-			$('.every_c').attr("disabled", true)
+			$('.every_c').attr("disabled", true);
 		}else{
-			$('.every_c').attr("disabled", false)
-			}
+			$('.every_c').attr("disabled", false);
+		}
 		
 	});
 	
 	$("input:radio[name=drug]").click(function() {
 		
 		if($("input:radio[name=drug]:checked").val()=='해당없음'){
-			$('.drug_c').attr("disabled", true)
+			$('.drug_c').attr("disabled", true);
 		}else{
-			$('.drug_c').attr("disabled", false)
-			}
+			$('.drug_c').attr("disabled", false);
+		}
 		
 	});
 	
 	$("input:radio[name=infectious]").click(function() {
 	
 		if($("input:radio[name=infectious]:checked").val()=='해당없음'){
-			$('.infectious_c').attr("disabled", true)
+			$('.infectious_c').attr("disabled", true);
 		}else{
-			$('.infectious_c').attr("disabled", false)
-			}
+			$('.infectious_c').attr("disabled", false);
+		}
 		
 	});
-	
 
-$(document).ready(function() { 
-
-	$("input:radio[name=three]").click(function(){ 
-           
-		if($("input:radio[name=three]:checked").val()=='해당없음'){
-			$('.three_c').attr("disabled", true)
-		}else{
-				$('.three_c').attr("disabled", false)
-			}
-
-	});
-	
-	$("input:radio[name=week]").click(function(){ 
-           
-		if($("input:radio[name=week]:checked").val()=='해당없음'){
-			$('.week_c').attr("disabled", true)
-		}else{
-				$('.week_c').attr("disabled", false)
-			}
-
-	});
-	
-	$("input:radio[name=month]").click(function(){
-	
-		if($("input:radio[name=month]:checked").val()=='해당없음'){
-			$('.month_c').attr("disabled", true)
-		}else{
-				$('.month_c').attr("disabled", false)
-			}
-			
-	});
-	
-	$("input:radio[name=months]").click(function(){
-	
-		if($("input:radio[name=months]:checked").val()=='해당없음'){
-			$('.months_c').attr("disabled", true)
-		}else{
-				$('.months_c').attr("disabled", false)
-			}
-				
-	});
-	
-	$("input:radio[name=year]").click(function(){
-		
-		if($("input:radio[name=year]:checked").val()=='해당없음'){
-			$('.year_c').attr("disabled", true)
-		}else{
-			$('.year_c').attr("disabled", false)
-			}
-			
-	});
-	
-	$("input:radio[name=every]").click(function(){
-	
-		if($("input:radio[name=every]:checked").val()=='해당없음'){
-			$('.every_c').attr("disabled", true)
-		}else{
-			$('.every_c').attr("disabled", false)
-			}
-		
-	});
-	
-	$("input:radio[name=drug]").click(function() {
-		
-		if($("input:radio[name=drug]:checked").val()=='해당없음'){
-			$('.drug_c').attr("disabled", true)
-		}else{
-			$('.drug_c').attr("disabled", false)
-			}
-		
-	});
-	
-	$("input:radio[name=infectious]").click(function() {
-	
-		if($("input:radio[name=infectious]:checked").val()=='해당없음'){
-			$('.infectious_c').attr("disabled", true)
-		}else{
-			$('.infectious_c').attr("disabled", false)
-			}
-		
-	});
-	
-});
 });

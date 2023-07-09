@@ -21,15 +21,14 @@
 					<li><a href="main" class="nav-link px-2 text-black"> 헌혈 : 더 글로리</a></li>
 				    </ul>
 				    <div class="col-md-3 text-end">
-                         <c:if test="${not sessionScope.isLogin}">
-                       		    <a href="main"><button type="button" class="btn btn-outline-primary me-2">메인 페이지로</button></a>
+                         <c:if test="${not sessionScope.isLogin}">                       		    
                           		<a href="login"><button type="button" class="btn btn-primary">로그인</button></a>
                           		<a href="joinForm"><button type="button" class="btn btn-primary">회원가입</button></a>
                         </c:if>  
                          <c:if test="${sessionScope.isLogin and not sessionScope.member.id != 'admin'}">
                          	   <a href="logout"><button type="button" class="btn btn-primary">로그아웃</button></a>
                          	   <a href="memberUpdateForm"><button type="button" class="btn btn-warning"> 회원 수정</button></a>
-                               <a href="#"><button type="button" class="btn btn-danger"> 마이페이지</button></a>
+                               <!-- <a href="#"><button type="button" class="btn btn-danger"> 마이페이지</button></a> -->
                          </c:if>
                      </div>
 			</div>
@@ -37,7 +36,7 @@
 	  </header>
      </div>
    </div>
-</div>
+
 		<!-- main 콘텐츠 -->
 
 <main>
@@ -55,7 +54,7 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Menu</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page">Menu</a></li>
 					<li class="nav-item"><a class="nav-link" href="notificationList">공지사항 </a></li>
 					<li class="nav-item"><a class="nav-link" href="searchMap">장소찾기 </a></li>
 
@@ -63,8 +62,7 @@
 					<li class="nav-item"><a class="nav-link" href="paperForm">전자문진 </a></li>
 
 					<li class="nav-item"><a class="nav-link" href="matchingBoardList">매칭게시판 </a></li>
-					<li class="nav-item"><a class="nav-link" href="goodsList">굿즈 </a></li>
-					<li class="nav-item"><a class="nav-link">뉴스/기사 </a></li>
+					<li class="nav-item"><a class="nav-link" href="goodsList">굿즈 </a></li>					
 				</ul>
 			</div>
 		</div>

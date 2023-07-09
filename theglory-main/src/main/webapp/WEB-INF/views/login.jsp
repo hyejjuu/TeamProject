@@ -3,9 +3,9 @@
 
 <div class="container pt-5">
   <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form method="post" action="login.do">
-        <div class="form-group  pt-2">
+    <div class="col-md-6 pt-5">
+      <form method="post" action="login.do" style="height: 400px;">
+        <div class="form-group  pt-5">
           <div class="row">
             <div class="col-md-2">
               <label for="userId" class="text-left">아이디</label>
@@ -15,7 +15,7 @@
             </div>
           </div>
         </div>
-        <div class="form-group  pt-2">
+        <div class="form-group pt-2">
           <div class="row">
             <div class="col-md-2">
               <label for="userPass" class="text-left">비밀번호</label>
