@@ -81,7 +81,7 @@ $(document).ready(function() {
 		
 	});
 	
-=======
+
 $(document).ready(function() { 
 
 	$("input:radio[name=three]").click(function(){ 
@@ -164,4 +164,5 @@ $(document).ready(function() {
 		
 	});
 	
+});
 });

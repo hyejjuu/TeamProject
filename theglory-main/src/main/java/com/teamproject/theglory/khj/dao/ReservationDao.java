@@ -18,4 +18,7 @@ public interface ReservationDao {
 	
 	public abstract void insertReservation(Reservation r);
 	
+
+	// 예약 취소 요청시 호출되는 메서드 - Reservation 객체로 받아 DB에 삭제
+	public abstract void deleteReservation(int reservationNo);
 }

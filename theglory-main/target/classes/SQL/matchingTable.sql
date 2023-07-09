@@ -3,6 +3,7 @@ CREATE SCHEMA `theglory`;
 use theglory;
 
 DROP TABLE matching;
+DROP TABLE matchReply;
 
 CREATE TABLE matching (
 	no INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -22,40 +23,48 @@ CREATE TABLE matching (
 select * from matching;
 
 INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목1", "작성자1", 20230101, 0, "내용1", "1234", "서울", "A형", "전혈");
+("급해요", "Silver1", 20230101, 0, "헌혈증 구합니다. 있으신 분들 댓글 부탁드려요.", "1234", "서울", "A형", "전혈");
 INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목2","작성자2",20230102,0,"내용2", "1234", "대전", "B형", "혈소판");
+("기부합니다", "Silver5", 20230102, 0, "필요하신 분 댓글 달아주세요.", "1234", "경기", "AB형", "혈장");
 INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목3","작성자3",20230103,0,"내용3","1234", "대구","AB형","전혈");
+("혈소판 필요하신분", "Willow3", 20230103, 0, "댓글ㄱㄱ", "1234", "인천", "O형", "혈소판");
 INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목4","작성자4",20230104,0,"내용4", "1234", "부산","O형","혈장");
+("헌혈증 기부받습니다", "Sunset6", 20230104, 0, "미리 감사합니다.", "1234", "강원", "O형", "전혈");
 INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
+("O형 전혈 입니다.", "Shadow8", 20230105, 0, "필요하신 분 댓글 달아주세요.", "1234", "충남", "O형", "전혈");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("혈장 헌혈했습니다", "Bright7", 20230106, 0, "좋은 일 했다고 생각하니 뿌듯하네요.", "1234", "충북", "O형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("O형 혈장 필요합니다", "Shadow11", 20230107, 0, "급합니다. 부탁드려요.", "1234", "제주", "O형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("헌혈완료", "Castle8", 20230108, 0, "기부합니다.", "1234", "대전", "O형", "혈소판");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("도와주세요!", "Winter3", 20230109, 0, "혈장 있으신분 댓글 부탁드려요!", "1234", "부산", "AB형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("전혈 헌혈완료했습니다", "Meadow1", 20230110, 0, "댓글 남겨주세요.", "1234", "전남", "B형", "전혈");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("헌혈증 필요", "Silver1", 20230101, 0, "헌혈증 구합니다. 댓글 부탁드려요.", "1234", "서울", "A형", "전혈");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("헌혈증 기부하실 분 있으신가요", "Silver5", 20230102, 0, "댓글달아주세요", "1234", "경기", "AB형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("혈소판 필요하신분", "Willow3", 20230103, 0, "헌혈완료했습니다.", "1234", "인천", "O형", "혈소판");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("헌혈증 기부필요", "Sunset6", 20230104, 0, "강원도민분들 부탁드려요", "1234", "강원", "O형", "전혈");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("O형 전혈", "Shadow8", 20230105, 0, "충청도 직거래 가능합니다. 댓글 주세요", "1234", "충남", "O형", "전혈");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("헌혈완료", "Bright7", 20230106, 0, "혈장은 첨 해봤네요. 필요하신분?", "1234", "충북", "O형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("제주도 O혈 혈장 필요합니다", "Shadow11", 20230107, 0, "제주도면 직거래 다 가능합니다. 댓글주세요", "1234", "제주", "O형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("오헌완", "Castle8", 20230108, 0, "오늘은 혈소판했음", "1234", "대전", "O형", "혈소판");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("급합니다!", "Winter3", 20230109, 0, "많이 필요해요 댓글 많이 부탁드러요!", "1234", "부산", "AB형", "혈장");
+INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
+("헌혈완료했습니다", "Meadow1", 20230110, 0, "직거래 우편 다 가능. 필요하시면 댓글주세요.", "1234", "전남", "B형", "전혈");
 
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
-INSERT INTO matching (title,writer,write_date,read_count,content,pass,local,bloodtype,blood_donation) VALUES 
-("제목5","작성자5",20230105,0,"내용5","1234", "충청도","B형","전혈");
+
+commit;
 
 CREATE TABLE IF NOT EXISTS matchReply (
 	no INTEGER auto_increment PRIMARY KEY,
@@ -67,12 +76,6 @@ CREATE TABLE IF NOT EXISTS matchReply (
 );
 select * from matchReply;
 
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
-INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '댓글 내용 !!', 'midas', '2022-12-27 19:44:32');
+INSERT INTO matchReply(match_no, reply_content, reply_writer, reg_date)VALUES(5, '', 'Shadow1', '2022-12-27 19:44:32');
+
+commit;
